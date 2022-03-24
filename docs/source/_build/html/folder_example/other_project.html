@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>网友提供应用样例 &mdash; 淘晶驰资料中心 1.0.0 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="视频教程" href="../video_tutorial.html" />
+    <link rel="prev" title="官方发布应用样例" href="official_project.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> 淘晶驰资料中心
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">淘晶驰教程:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../get_start.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../instruction_set.html">基本指令集</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code_grammar.html">书写语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system_variables.html">系统变量</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_return.html">串口HMI设备返回数据格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../name_array.html">名称组使用说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_applications.html">HMI高级应用与特殊指令详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usarthmi_download.html">上位机下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../widget_interpretation.html">控件详解</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../example.html">工程样例下载</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="default_project.html">标准出厂工程样例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="official_project.html">官方发布应用样例</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">网友提供应用样例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">1.多功能测量仪</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">2.超声波水位控制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">3.全键盘输入、密码登录</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">4.简易计算器 点击下载</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">5.打兔子，无需单片机支持</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">6.电压数据采集及系统参数设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">7.温度读取显示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">8.串口屏控制3路继电器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">9.九宫格全英文输入（支持串口打印字符）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loading">10.酷炫Loading进度条界面</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">11.86面板智能家居</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">12.简洁圆形数字键盘（支持全局输入）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">13.多种控件效果</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../video_tutorial.html">视频教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Q_and_A.html">基础问题集锦</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../product_datasheet.html">产品选型和规格书</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">淘晶驰资料中心</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../example.html">工程样例下载</a> &raquo;</li>
+      <li>网友提供应用样例</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/folder_example/other_project.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>网友提供应用样例<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>以下样例为网友提交,我们不保证每一个例子都能完全正常使用，仅做参考!</p>
+</div>
+<section id="id2">
+<h2>1.多功能测量仪<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<p>素材说明：界面华丽，带有示波器功能。</p>
+<img alt="../_images/3_11.jpg" src="../_images/3_11.jpg" />
+</section>
+<hr class="docutils" />
+<section id="id3">
+<h2>2.超声波水位控制<a class="headerlink" href="#id3" title="永久链接至标题"></a></h2>
+<p>素材说明：</p>
+<blockquote>
+<div><p>单片机：STC15F2K60S2*2，1302模块*1.18B20模块*1.1路继电器模块5V*1.交流接触器220V*1.</p>
+<p>1.水位实时显示，和百分比显示。</p>
+<p>2.温度日期星期和时间显示。</p>
+<p>3.时间设置，水位设置。</p>
+<p>4.两种水位控制，手动和自动。</p>
+<p>5 .两种保护，超时和满水自动停止。</p>
+</div></blockquote>
+<img alt="../_images/3_2.jpg" src="../_images/3_2.jpg" />
+</section>
+<hr class="docutils" />
+<section id="id4">
+<h2>3.全键盘输入、密码登录<a class="headerlink" href="#id4" title="永久链接至标题"></a></h2>
+<dl>
+<dt>素材说明：</dt><dd><p>1、全键盘输入，支持大小写切换，数字，字符。</p>
+<p>2、密码登录，利用EEPROM保存，修改密码。</p>
+<p>3、进入设置页面的万能密码为890327。</p>
+</dd>
+</dl>
+<img alt="../_images/3_311.png" src="../_images/3_311.png" />
+</section>
+<hr class="docutils" />
+<section id="id5">
+<h2>4.简易计算器 点击下载<a class="headerlink" href="#id5" title="永久链接至标题"></a></h2>
+<p>素材说明：</p>
+<blockquote>
+<div><p>第一次接触串口屏，就随便做了个简易计算器，试试手，免MCU控制。
+不支持负数和小数点，计算过大或出现负数时会有溢出问题。</p>
+</div></blockquote>
+<img alt="../_images/3_4.jpg" src="../_images/3_4.jpg" />
+</section>
+<hr class="docutils" />
+<section id="id6">
+<h2>5.打兔子，无需单片机支持<a class="headerlink" href="#id6" title="永久链接至标题"></a></h2>
+<dl class="simple">
+<dt>素材说明：</dt><dd><p>根据前面的打兔子修改，无需单片机支持，直接运行，增加时间显示。</p>
+</dd>
+</dl>
+<img alt="../_images/3_511.png" src="../_images/3_511.png" />
+</section>
+<hr class="docutils" />
+<section id="id7">
+<h2>6.电压数据采集及系统参数设置<a class="headerlink" href="#id7" title="永久链接至标题"></a></h2>
+<dl class="simple">
+<dt>素材说明：</dt><dd><p>该案例单片机电压显示已有很多案例，不再多言，主要是屏本身参数设定。有如下功能：
+1休眠时间：通过双态按钮实现休眠的开关功能。当休眠开时，可以通过cal界面来设置休眠时间；当休眠关时，休眠时间设置无效。
+2工作时间：当屏处于非休眠状态时，可以一直“不间断”地记录工作时间。这里不间断是指切换页面的过程，它也一直保持工作。
+3背光亮度：通过改变滑块的位置改变屏背光的亮度。</p>
+</dd>
+</dl>
+<img alt="../_images/3_61.jpg" src="../_images/3_61.jpg" />
+</section>
+<hr class="docutils" />
+<section id="id8">
+<h2>7.温度读取显示<a class="headerlink" href="#id8" title="永久链接至标题"></a></h2>
+<dl class="simple">
+<dt>素材说明：</dt><dd><p>使用DS18B20读取温度，并发送到，进度条，文本，控件实现显示效果
+单片机使用STC89C52晶振11.0592
+温度读取引脚P3.7（应按照自己的学习板进行调整）波特率9600</p>
+</dd>
+</dl>
+<img alt="../_images/3_71.png" src="../_images/3_71.png" />
+</section>
+<hr class="docutils" />
+<section id="id9">
+<h2>8.串口屏控制3路继电器<a class="headerlink" href="#id9" title="永久链接至标题"></a></h2>
+<dl class="simple">
+<dt>素材说明：</dt><dd><p>这个案例主要通过printh指令，从屏幕发送字节到串口，单片机收到后加以判断，并对指定的IO输出高低电平，实现继电器开关，并返回开关状态；
+单片机端使用STC89C52；晶振11.0592；继电器控制IOP1^0,P1^1,P1^2；波特率9600</p>
+</dd>
+</dl>
+<img alt="../_images/3_81.png" src="../_images/3_81.png" />
+</section>
+<hr class="docutils" />
+<section id="id10">
+<h2>9.九宫格全英文输入（支持串口打印字符）<a class="headerlink" href="#id10" title="永久链接至标题"></a></h2>
+<dl class="simple">
+<dt>素材说明：</dt><dd><p>极简九宫格全英文输出（支持串口打印字符）
+对于小于3.5寸的小屏如果做全键盘会影响触摸体验，因为键太多屏幕不够大只能缩小按键尺寸，影响视觉体验和触摸体验。九宫格键盘可以解决这个问题，10个按键布局实现全键盘的功能。数字，英文均可输入。您值得尝试一下!</p>
+</dd>
+</dl>
+<img alt="../_images/3_9.jpg" src="../_images/3_9.jpg" />
+</section>
+<hr class="docutils" />
+<section id="loading">
+<h2>10.酷炫Loading进度条界面<a class="headerlink" href="#loading" title="永久链接至标题"></a></h2>
+<dl class="simple">
+<dt>素材说明：</dt><dd><p>酷炫Loading进度条界面
+为节约FLASH空间本实例没有使用切换整图来实现动画，而是使用单个小图片元素通过定时器来实现超炫动画效果</p>
+</dd>
+</dl>
+<img alt="../_images/3_10.jpg" src="../_images/3_10.jpg" />
+</section>
+<hr class="docutils" />
+<section id="id11">
+<h2>11.86面板智能家居<a class="headerlink" href="#id11" title="永久链接至标题"></a></h2>
+<dl class="simple">
+<dt>素材说明：</dt><dd><p>特别说:明对于单片机通讯方面，每个人的方法都不一样
+所以我的通讯协议大家未必适合，大家可以用自己的方法实现单片机的控制</p>
+</dd>
+</dl>
+<img alt="../_images/3_111.png" src="../_images/3_111.png" />
+</section>
+<hr class="docutils" />
+<section id="id12">
+<h2>12.简洁圆形数字键盘（支持全局输入）<a class="headerlink" href="#id12" title="永久链接至标题"></a></h2>
+<dl class="simple">
+<dt>素材说明：</dt><dd><p>简洁圆形数字键盘（支持全局输入）</p>
+</dd>
+</dl>
+<img alt="../_images/3_12.jpg" src="../_images/3_12.jpg" />
+</section>
+<hr class="docutils" />
+<section id="id13">
+<h2>13.多种控件效果<a class="headerlink" href="#id13" title="永久链接至标题"></a></h2>
+<dl class="simple">
+<dt>素材说明：</dt><dd><p>在同一个页面中实现下拉列表框效果，并支持滚动条</p>
+</dd>
+</dl>
+<img alt="../_images/3_131.png" src="../_images/3_131.png" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="official_project.html" class="btn btn-neutral float-left" title="官方发布应用样例" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../video_tutorial.html" class="btn btn-neutral float-right" title="视频教程" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, taojingchi.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

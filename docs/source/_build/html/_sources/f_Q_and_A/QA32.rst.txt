@@ -1,0 +1,13 @@
+32.无法打开软件安装包
+============================================================
+
+window7 64位操作系统打开软件安装包提示下面的错误
+
+.. image:: ../media/QandA/1_21.jpg
+
+
+可通过下面链接打上相应补丁即可
+
+https://www.microsoft.com/zh-cn/download/confirmation.aspx?id=49093
+
+.. image:: ../media/QandA/1_22.jpg

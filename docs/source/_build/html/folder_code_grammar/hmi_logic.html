@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>四、【HMI逻辑语句】 &mdash; 淘晶驰资料中心 1.0.0 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="系统变量" href="../system_variables.html" />
+    <link rel="prev" title="三、【跨页面赋值，全局页面操作】" href="global_variable.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> 淘晶驰资料中心
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">淘晶驰教程:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../get_start.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../instruction_set.html">基本指令集</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../code_grammar.html">书写语法</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="assignment_operation.html">一、【赋值操作】</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arithmetic_operation.html">二、【运算操作】</a></li>
+<li class="toctree-l2"><a class="reference internal" href="global_variable.html">三、【跨页面赋值，全局页面操作】</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">四、【HMI逻辑语句】</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../system_variables.html">系统变量</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_return.html">串口HMI设备返回数据格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../name_array.html">名称组使用说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_applications.html">HMI高级应用与特殊指令详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usarthmi_download.html">上位机下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../widget_interpretation.html">控件详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">工程样例下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video_tutorial.html">视频教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Q_and_A.html">基础问题集锦</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../product_datasheet.html">产品选型和规格书</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">淘晶驰资料中心</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../code_grammar.html">书写语法</a> &raquo;</li>
+      <li>四、【HMI逻辑语句】</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/folder_code_grammar/hmi_logic.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="hmi">
+<h1>四、【HMI逻辑语句】<a class="headerlink" href="#hmi" title="永久链接至标题"></a></h1>
+<p>●注：所有的逻辑语句只能在上位编辑状态下写入控件的事件中，不支持串口传输逻辑语句。</p>
+<p>●所有的判断语句都不支持多余空格，添加进任何空格，编译都会报错</p>
+<p>1.if语句</p>
+<p>实例1: （如果password.txt等于”123456”那么就切换到admin页面）</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">if</span><span class="p">(</span><span class="n">password</span><span class="p">.</span><span class="n">txt</span><span class="o">==</span><span class="s">&quot;123456&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">2</span><span class="p">{</span><span class="w"></span>
+<span class="linenos">3</span><span class="w">   </span><span class="n">page</span><span class="w"> </span><span class="n">admin</span><span class="w"></span>
+<span class="linenos">4</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>实例2: （如果t0.txt不等于”a”也不等于b”那么就切换到页面1）</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">if</span><span class="p">(</span><span class="n">t0</span><span class="p">.</span><span class="n">txt</span><span class="o">!=</span><span class="s">&quot;a&quot;</span><span class="o">&amp;&amp;</span><span class="n">t0</span><span class="p">.</span><span class="n">txt</span><span class="o">!=</span><span class="s">&quot;b&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">2</span><span class="p">{</span><span class="w"></span>
+<span class="linenos">3</span><span class="w">   </span><span class="n">page</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="linenos">4</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>实例3: （如果  10 &lt; n0.val ≤ 100  那么就切换到页面1）</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">if</span><span class="p">(</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="o">&gt;</span><span class="mi">10</span><span class="o">&amp;&amp;</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="o">&lt;=</span><span class="mi">100</span><span class="o">&gt;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">2</span><span class="p">{</span><span class="w"></span>
+<span class="linenos">3</span><span class="w">   </span><span class="n">page</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="linenos">4</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>实例4:(以下语句写在b0按钮的按下事件中将实现b0的txt内容在开始和停止之间来回切换)</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">if</span><span class="p">(</span><span class="n">b0</span><span class="p">.</span><span class="n">txt</span><span class="o">==</span><span class="s">&quot;开始&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">2</span><span class="p">{</span><span class="w"></span>
+<span class="linenos">3</span><span class="w">   </span><span class="n">b0</span><span class="p">.</span><span class="n">txt</span><span class="o">=</span><span class="s">&quot;停止&quot;</span><span class="w"></span>
+<span class="linenos">4</span><span class="p">}</span><span class="k">else</span><span class="w"></span>
+<span class="linenos">5</span><span class="p">{</span><span class="w"></span>
+<span class="linenos">6</span><span class="w">   </span><span class="n">b0</span><span class="p">.</span><span class="n">txt</span><span class="o">=</span><span class="s">&quot;开始&quot;</span><span class="w"></span>
+<span class="linenos">7</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>实例5:(以下语句写在b0按钮的按下事件中将实现b0的txt内容在1,2,3之间来回切换)</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">if</span><span class="p">(</span><span class="n">b0</span><span class="p">.</span><span class="n">txt</span><span class="o">==</span><span class="s">&quot;1&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 2</span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 3</span><span class="w">   </span><span class="n">b0</span><span class="p">.</span><span class="n">txt</span><span class="o">=</span><span class="s">&quot;2&quot;</span><span class="w"></span>
+<span class="linenos"> 4</span><span class="p">}</span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">b0</span><span class="p">.</span><span class="n">txt</span><span class="o">==</span><span class="s">&quot;2&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 5</span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 6</span><span class="w">   </span><span class="n">b0</span><span class="p">.</span><span class="n">txt</span><span class="o">=</span><span class="s">&quot;3&quot;</span><span class="w"></span>
+<span class="linenos"> 7</span><span class="p">}</span><span class="k">else</span><span class="w"></span>
+<span class="linenos"> 8</span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 9</span><span class="w">   </span><span class="n">b0</span><span class="p">.</span><span class="n">txt</span><span class="o">=</span><span class="s">&quot;1&quot;</span><span class="w"></span>
+<span class="linenos">10</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>备注:</p>
+<p>1.数值类型变量支持:  &gt;;  &lt;;  ==;  !=;  &gt;=;  &lt;=</p>
+<p>2.字符串类型仅支持:  ==;  !=</p>
+<p>3.if判断的时候不支持括号优先级，比如:if((t0.txt==”a”||t0.txt==”b”)&amp;&amp;t1.txt==”1”)这样是不支持的！还有就是不要出现多余的空格。</p>
+<p>4.if判断的时候不允许出现运算，比如:if(n0.val+2==3)这样是不支持的。</p>
+<p>2.while语句</p>
+<p>实例1: (n0.val一直自加到100为止，在自加过程中屏幕不会刷新显示，直到整个过程所有语句结束)</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">while</span><span class="p">(</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">2</span><span class="p">{</span><span class="w"></span>
+<span class="linenos">3</span><span class="w">   </span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="o">++</span><span class="w"></span>
+<span class="linenos">4</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>实例2: (n0.val一直自加到100为止，在自加过程中屏幕会一直不断的刷新n0控件的显示)</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">while</span><span class="p">(</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">2</span><span class="p">{</span><span class="w"></span>
+<span class="linenos">3</span><span class="w">   </span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="o">++</span><span class="w"></span>
+<span class="linenos">4</span><span class="w">   </span><span class="n">doevents</span><span class="w"></span>
+<span class="linenos">5</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>备注:</p>
+<p>1.在一个较多指令的过程执行中，或者在一个较长时间的循环语句中，系统所有控制权被此过程全部占用，在过程结束之前，尽管相应的内存数据可以任意正常读写，但是屏幕不会刷新显示，加入doevents后可以转让控制权给屏幕刷新，执行doevents之后，屏幕会刷新所有被改变过的控件，刷新完之后，控制权交回当前过程继续执行。防止屏幕呈现假死的显示状态。</p>
+<p>2.while语句循环过程中，设备不会响应触摸事件，串口指令会接收到缓冲区，但不会执行，直到当前过程所有语句执行完毕为止，请慎重使用，以防进入死循环。</p>
+<p>3.for语句</p>
+<p>实例1: (n0.val一直自加到100为止，在自加过程中屏幕不会刷新显示，直到整个过程所有语句结束)</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">for</span><span class="p">(</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">;</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">2</span><span class="p">{</span><span class="w"></span>
+<span class="linenos">3</span><span class="w">   </span><span class="c1">//需要循环100次的代码</span>
+<span class="linenos">4</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>实例2: (n0.val一直自加到100为止，在自加过程中屏幕会一直不断的刷新n0控件的显示)</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">for</span><span class="p">(</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">;</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">2</span><span class="p">{</span><span class="w"></span>
+<span class="linenos">3</span><span class="w">   </span><span class="n">doevents</span><span class="w"></span>
+<span class="linenos">4</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>备注:</p>
+<p>1.在一个较多指令的过程执行中，或者在一个较长时间的循环语句中，系统所有控制权被此过程全部占用，在过程结束之前，尽管相应的内存数据可以任意正常读写，但是屏幕不会刷新显示，加入doevents后可以转让控制权给屏幕刷新，执行doevents之后，屏幕会刷新所有被改变过的控件，刷新完之后，控制权交回当前过程继续执行。防止屏幕呈现假死的显示状态。</p>
+<p>2.for语句循环过程中，设备不会响应触摸事件，串口指令会接收到缓冲区，但不会执行，直到当前过程所有语句执行完毕为止，请慎重使用，以防进入死循环。</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="global_variable.html" class="btn btn-neutral float-left" title="三、【跨页面赋值，全局页面操作】" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../system_variables.html" class="btn btn-neutral float-right" title="系统变量" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, taojingchi.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

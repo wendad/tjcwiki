@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>31.如何设计多语言界面 &mdash; 淘晶驰资料中心 1.0.0 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="32.无法打开软件安装包" href="QA32.html" />
+    <link rel="prev" title="30.如何解决调用系统键盘给控件赋值无效" href="QA30.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> 淘晶驰资料中心
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">淘晶驰教程:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../get_start.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../instruction_set.html">基本指令集</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code_grammar.html">书写语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system_variables.html">系统变量</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_return.html">串口HMI设备返回数据格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../name_array.html">名称组使用说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_applications.html">HMI高级应用与特殊指令详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usarthmi_download.html">上位机下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../widget_interpretation.html">控件详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">工程样例下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video_tutorial.html">视频教程</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../Q_and_A.html">基础问题集锦</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="QA1.html">1.ESD能过多少V，EMI性能如何</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA2.html">2.串口通讯线最长能接多少米</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA3.html">3.通讯口电压多少V，是否可以直接接5V单片机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA4.html">4.设计好的工程有哪些下载方式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA5.html">5.tft文件串口/SD卡下载失败如何解决</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA6.html">6.调试或下载时联机失败</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA7.html">7.屏幕通电后不断的闪烁(不断重启)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA8.html">8.怎么创建和使用字库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA9.html">9.编译报错：XXX初始值无效</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA10.html">10.哪些控件属性可以运行中修改，哪些不能运行中修改</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA11.html">11.txt属性和val属性有什么区别，为什么有些属性赋值要加双引号，有些不用加双引号</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA12.html">12.运行中控件属性被修改后，离开页面再回来，不希望属性回到初始值怎么操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA13.html">13.如何操作其他页面的控件属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA14.html">14.如何批量修改控件属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA15.html">15.如何实现按键长按功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA16.html">16.文本控件或按钮控件不显示我输入的字符内容或显示不全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA17.html">17.单片机发指令给屏幕没有反应</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA18.html">18.单片机发指令给屏幕，屏幕返回1A FF FF FF或1C FF FF FF四个字节的HEX数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA19.html">19.系统内置的触摸键盘怎么修改风格</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA20.html">20.滑块或进度条控件默认是横向，为什么我设为竖向后没有变化，还是显示横向呢</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA21.html">21.串口助手和屏幕联调</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA22.html">22.串口助手和上位软件的模拟器联调（不用单片机，不用屏幕实物，串口助手操作上位模拟器）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA23.html">23.屏幕波特率怎么修改</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA24.html">24.单片机和串口屏通信为什么单片机上电后要延时一会再发指令，延时多久合适</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA25.html">25.单片机上电后为什么要先发一次 0xff 0xff 0xff给屏幕</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA26.html">26.屏幕地址怎么设置，怎么使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA27.html">27.怎么读取和控制8路扩展IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA28.html">28.如何更改控件的前后图层关系</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA29.html">29.在做字库的时候有部分字体无法选择</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA30.html">30.如何解决调用系统键盘给控件赋值无效</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">31.如何设计多语言界面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA32.html">32.无法打开软件安装包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QA33.html">33.软件输出生产文件，出现提示框拒绝访问</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../product_datasheet.html">产品选型和规格书</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">淘晶驰资料中心</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../Q_and_A.html">基础问题集锦</a> &raquo;</li>
+      <li>31.如何设计多语言界面</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/f_Q_and_A/QA31.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>31.如何设计多语言界面<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<p>界面上的控件使用UTF-8编码的字库,然后在页面初始化里根据不同语言为控件的txt属性赋不同的值即可。</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="QA30.html" class="btn btn-neutral float-left" title="30.如何解决调用系统键盘给控件赋值无效" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="QA32.html" class="btn btn-neutral float-right" title="32.无法打开软件安装包" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, taojingchi.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>官方发布应用样例 &mdash; 淘晶驰资料中心 1.0.0 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="网友提供应用样例" href="other_project.html" />
+    <link rel="prev" title="标准出厂工程样例" href="default_project.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> 淘晶驰资料中心
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">淘晶驰教程:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../get_start.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../instruction_set.html">基本指令集</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code_grammar.html">书写语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system_variables.html">系统变量</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_return.html">串口HMI设备返回数据格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../name_array.html">名称组使用说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_applications.html">HMI高级应用与特殊指令详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usarthmi_download.html">上位机下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../widget_interpretation.html">控件详解</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../example.html">工程样例下载</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="default_project.html">标准出厂工程样例</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">官方发布应用样例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#stm32hmi">1.STM32单片机和HMI屏通信</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hmi">2.51单片机和HMI屏通信</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">3.51单片机发变量值及进度条值给HMI屏</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">4.51单片机发正弦波给HMI屏显示(曲线波形)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gif">5.简单GIF动画播放</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#led">6.滑动调背光及控制LED亮度值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">7.51单片机和屏双向动作</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">8.全局变量的使用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">9.仿苹果界面滑动解锁</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#d">10.3D打印机操作界面样例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">11.数字控件应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">12.字符串和数值之间的变换操作</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#x240">13.基于320X240分辨率下的掷骰子赌大小游戏</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#io">14.增强型系列之IO扩展应用实例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rtc">15.增强型系列之RTC时钟应用实例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#eeprom-1">16.增强型系列之用户存储(EEPROM)应用实例1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#eeprom-2">17.增强型系列之用户存储(EEPROM)应用实例2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id25">18.单选框 复选框控件应用实例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id27">19.简易钢琴自动演奏实例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id29">20.简易串口助手</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#arduino">21.ARDUINO和串口屏双向通讯</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id32">22.自定义好看的键盘</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="other_project.html">网友提供应用样例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../video_tutorial.html">视频教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Q_and_A.html">基础问题集锦</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../product_datasheet.html">产品选型和规格书</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">淘晶驰资料中心</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../example.html">工程样例下载</a> &raquo;</li>
+      <li>官方发布应用样例</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/folder_example/official_project.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>官方发布应用样例<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<section id="stm32hmi">
+<h2>1.STM32单片机和HMI屏通信<a class="headerlink" href="#stm32hmi" title="永久链接至标题"></a></h2>
+<p>素材说明：STM32单片机和HMI屏通信，通过单片机对HMI屏刷色及改变HMI屏文本内容。</p>
+<img alt="../_images/1_23.jpg" src="../_images/1_23.jpg" />
+<p><a class="reference external" href="http://filedown.tjc1688.com/USARTHMI/g_prj/1.zip">点击下载《STM32单片机和HMI屏通信样例1》</a></p>
+<p><a class="reference external" href="http://filedown.tjc1688.com/USARTHMI/g_prj/STM32_USART_PRO_PLUS_MAX.zip">点击下载《STM32单片机和HMI屏通信样例2》</a></p>
+</section>
+<hr class="docutils" />
+<section id="hmi">
+<h2>2.51单片机和HMI屏通信<a class="headerlink" href="#hmi" title="永久链接至标题"></a></h2>
+<p>素材说明:51(STC)单片机和HMI屏通信,通过单片机对HMI屏刷色及改变HMI屏文本内容。</p>
+<img alt="../_images/1_31.jpg" src="../_images/1_31.jpg" />
+<p><a class="reference external" href="http://filedown.tjc1688.com/USARTHMI/g_prj/2.zip">点击下载《51单片机和HMI屏通信》</a></p>
+</section>
+<hr class="docutils" />
+<section id="id3">
+<h2>3.51单片机发变量值及进度条值给HMI屏<a class="headerlink" href="#id3" title="永久链接至标题"></a></h2>
+<p>素材说明：此实例演示如何将51(STC)单片机内部的变量赋值给屏幕上的文本，和赋值给进度条。</p>
+<img alt="../_images/1_41.png" src="../_images/1_41.png" />
+<p><a class="reference external" href="http://filedown.tjc1688.com/USARTHMI/g_prj/3.zip">点击下载《51单片机发变量值及进度条值给HMI屏》</a></p>
+</section>
+<hr class="docutils" />
+<section id="id5">
+<h2>4.51单片机发正弦波给HMI屏显示(曲线波形)<a class="headerlink" href="#id5" title="永久链接至标题"></a></h2>
+<p>素材说明：51（STC）单片机发正弦波给HMI屏显示，里面有有锯齿波和方波，程序屏蔽了，可以打开看效果。</p>
+<img alt="../_images/1_52.png" src="../_images/1_52.png" />
+<p><a class="reference external" href="http://filedown.tjc1688.com/USARTHMI/g_prj/4.zip">点击下载《51单片机发正弦波给HMI屏显示》</a></p>
+</section>
+<hr class="docutils" />
+<section id="gif">
+<h2>5.简单GIF动画播放<a class="headerlink" href="#gif" title="永久链接至标题"></a></h2>
+<p>素材说明：简单GIF动画播放，通过使用定时器，实现简单GIF动画的播放。此实例使用2个定时器实现图片的循环播放来实现动画效果，定时器的定时周期可以随时改变（滑块控制速度），整个过程没有下位机参与。</p>
+<img alt="../_images/1_61.png" src="../_images/1_61.png" />
+<p><a class="reference external" href="http://filedown.tjc1688.com/USARTHMI/g_prj/5.zip">点击下载《简单GIF动画播放》</a></p>
+</section>
+<hr class="docutils" />
+<section id="led">
+<h2>6.滑动调背光及控制LED亮度值<a class="headerlink" href="#led" title="永久链接至标题"></a></h2>
+<img alt="../_images/1_72.png" src="../_images/1_72.png" />
+<p>素材说明：</p>
+<blockquote>
+<div><p>1.滑动滑块，LCD亮度自动改变。停止滑动，亮度值自动保存到默认亮度。</p>
+<p>2.此实例中的滑块当前值的显示是通过单片机交互实现的，没有使用数字控件，也没有使用变量转换功能，滑动过程实时发送滑块的val值给单片机，单片机收到后转换为字符串内容再赋值给文本控件。</p>
+</div></blockquote>
+<p><a class="reference external" href="http://filedown.tjc1688.com/USARTHMI/g_prj/6.zip">点击下载《滑动调背光及控制LED亮度值》</a></p>
+</section>
+<hr class="docutils" />
+<section id="id9">
+<h2>7.51单片机和屏双向动作<a class="headerlink" href="#id9" title="永久链接至标题"></a></h2>
+<img alt="../_images/1_82.png" src="../_images/1_82.png" />
+<p>素材说明：51（STC）单片机和屏双向动作，HMI屏按键按下，开发板LED灯灭并改变HMI屏上的按键状态。此实例使用握手模式，手指按下的时候，图标并不会立刻改变，而是通知单片机，单片机收到按下通知后改变板子上的LED灯之后，发指令让屏幕切换图标。此实例不同于双态按钮的实例，双态按钮是屏幕自动切换图标状态，此实例是跟单片机交互实现图标切换。</p>
+<p><a class="reference external" href="http://filedown.tjc1688.com/USARTHMI/g_prj/7.zip">点击下载《51单片机和屏双向动作》</a></p>
+</section>
+<hr class="docutils" />
+<section id="id11">
+<h2>8.全局变量的使用<a class="headerlink" href="#id11" title="永久链接至标题"></a></h2>
+<img alt="../_images/1_9.png" src="../_images/1_9.png" />
+<p>素材说明：通过使用全局变量，多个文本控件绑定同一个键盘输入页面实现自动赋值，整个输入过程无需下位机参与。</p>
+<p><a class="reference external" href="http://filedown.tjc1688.com/USARTHMI/g_prj/8.zip">点击下载《全局变量的使用》</a></p>
+</section>
+<hr class="docutils" />
+<section id="id13">
+<h2>9.仿苹果界面滑动解锁<a class="headerlink" href="#id13" title="永久链接至标题"></a></h2>
+<img alt="../_images/1_10.png" src="../_images/1_10.png" />
+<p>素材说明：仿苹果界面滑动解锁，通过滑动对屏解锁。此功能使用滑块实现，为了实现逼真的手机滑动效果，加入了if语句判断按下位置和滑动长度。和真实手机解锁体验非常接近。</p>
+<p><a class="reference external" href="http://filedown.tjc1688.com/USARTHMI/g_prj/9.zip">点击下载《仿苹果界面滑动解锁 》</a></p>
+</section>
+<hr class="docutils" />
+<section id="d">
+<h2>10.3D打印机操作界面样例<a class="headerlink" href="#d" title="永久链接至标题"></a></h2>
+<img alt="../_images/1_11.jpg" src="../_images/1_11.jpg" />
+<p>素材说明：3D打印机操作界面样例，里面有键盘调用，输入密码用*号显示等。</p>
+<p><a class="reference external" href="http://filedown.tjc1688.com/USARTHMI/g_prj/10.rar">点击下载《3D打印机操作界面样例 》</a></p>
+</section>
+<hr class="docutils" />
+<section id="id16">
+<h2>11.数字控件应用<a class="headerlink" href="#id16" title="永久链接至标题"></a></h2>
+<img alt="../_images/1_121.png" src="../_images/1_121.png" />
+<p>素材说明：数字控件应用，无需单片机操作，用数字控件对文本值进行加减操作。</p>
+<p><a class="reference external" href="http://filedown.tjc1688.com/USARTHMI/g_prj/11.zip">点击下载《数字控件应用》</a></p>
+</section>
+<hr class="docutils" />
+<section id="id18">
+<h2>12.字符串和数值之间的变换操作<a class="headerlink" href="#id18" title="永久链接至标题"></a></h2>
+<img alt="../_images/1_131.png" src="../_images/1_131.png" />
+<p>素材说明：字符串和数值之间的变换操作（无单片机参与），把滑块进度值（数值）赋值给文本（字符串）显示，从键盘输入键值赋值给背光亮度。</p>
+<p><a class="reference external" href="http://filedown.tjc1688.com/USARTHMI/g_prj/12.zip">点击下载《字符串和数值之间的变换操作》</a></p>
+</section>
+<hr class="docutils" />
+<section id="x240">
+<h2>13.基于320X240分辨率下的掷骰子赌大小游戏<a class="headerlink" href="#x240" title="永久链接至标题"></a></h2>
+<img alt="../_images/1_141.png" src="../_images/1_141.png" />
+<p>素材说明：</p>
+<blockquote>
+<div><p>1.整个游戏过程HMI自动完成，无需用户单片机参与。工程中用到了全局控件,if esle,自锁按键，定时器，随机数，系统内置数值变量sys0,sys1,是个不错的参考例程。</p>
+<p>2.此工程按320*240分辨率设计，别的分辨率也可以用来做测试，如果在更大的分辨率上测试，多出来的区域将会是白色。下载之前先选择您设备对应的型号。</p>
+</div></blockquote>
+<p><a class="reference external" href="http://filedown.tjc1688.com/USARTHMI/g_prj/13.zip">点击下载《基于320X240分辨率下的掷骰子赌大小游戏》</a></p>
+</section>
+<hr class="docutils" />
+<section id="io">
+<h2>14.增强型系列之IO扩展应用实例<a class="headerlink" href="#io" title="永久链接至标题"></a></h2>
+<img alt="../_images/1_151.png" src="../_images/1_151.png" />
+<p>素材说明：</p>
+<blockquote>
+<div><p>温馨提示：此实例是基于增强型系列硬件设计的，基本型系不支持IO扩展</p>
+<p>此实例配合IO扩展板使用，界面上的6个按钮分别邦定扩展板的6个按键。可以控制扩展板上的LED亮度和蜂鸣器的音量，均是通过pwm占空比来控制的。</p>
+</div></blockquote>
+<p><a class="reference external" href="http://filedown.tjc1688.com/USARTHMI/g_prj/14.rar">点击下载《增强型系列之IO扩展应用实例》</a></p>
+</section>
+<hr class="docutils" />
+<section id="rtc">
+<h2>15.增强型系列之RTC时钟应用实例<a class="headerlink" href="#rtc" title="永久链接至标题"></a></h2>
+<img alt="../_images/1_161.png" src="../_images/1_161.png" />
+<p>素材说明：</p>
+<blockquote>
+<div><p>温馨提示：此实例是基于增强型（k0）系列硬件设计的，基本型（t0 t1）系不支持RTC实时时钟。</p>
+<p>一个基于RTC的简单的电子钟，可以设置时间，可以12小时/24小时制转换。</p>
+<p>k0 x5支持RTC  x3 t0 t1系列不支持</p>
+</div></blockquote>
+<p><a class="reference external" href="http://filedown.tjc1688.com/USARTHMI/g_prj/15.zip">点击下载《增强型系列之RTC时钟应用实例》</a></p>
+</section>
+<hr class="docutils" />
+<section id="eeprom-1">
+<h2>16.增强型系列之用户存储(EEPROM)应用实例1<a class="headerlink" href="#eeprom-1" title="永久链接至标题"></a></h2>
+<img alt="../_images/1_17.png" src="../_images/1_17.png" />
+<p>素材说明：</p>
+<blockquote>
+<div><p>此工程做得很简单，主要演示如何使用EEPROM，只验密码，并且是数字的。如果要复杂一点的可以下载EEPROM应用实例2，有用户名和密码一起验证，有大小写切换。</p>
+<p>温馨提示：此实例是基于增强型系列硬件设计的，基本型系不支持用户存储（EERPOM）</p>
+<p>此工程演示如何储存用户设置的密码到EEPROM中，每次登陆调出来对比，整个过程无需单片机参与。</p>
+<p>模块新拿到手的时候EEPROM中储存的密码是随机的，使用之前您需要从串口发指令去初始化密码。为了方便测试，此工程在登陆了一个修改密码的按钮。实际做项目的时除掉就可以了。</p>
+</div></blockquote>
+<p><a class="reference external" href="http://filedown.tjc1688.com/USARTHMI/g_prj/16.rar">点击下载《增强型系列之用户存储(EEPROM)应用实例1》</a></p>
+</section>
+<hr class="docutils" />
+<section id="eeprom-2">
+<h2>17.增强型系列之用户存储(EEPROM)应用实例2<a class="headerlink" href="#eeprom-2" title="永久链接至标题"></a></h2>
+<img alt="../_images/1_18.png" src="../_images/1_18.png" />
+<p>素材说明：</p>
+<blockquote>
+<div><p>此工程做得复杂一点，演示如何使用EEPROM储存用户名和密码，有大小写切换。如果想要简易点的主要演示EEPROM的应用可以下载EEPROM应用实例1，就会简单些，只验证密码，并且是数字的。</p>
+<p>温馨提示：此实例是基于增强型系列硬件设计的，基本型系不支持用户存储（EERPOM）</p>
+<p>此工程演示如何储存用户名和密码到EEPROM中，每次登陆调出来对比，整个过程无需单片机参与。</p>
+<p>模块新拿到手的时候EEPROM中储存的用户名和密码是随机的，使用之前您需要从串口发指令去初始化用户名和密码。为了方便测试，此工程在登陆界面做了一个初始化用户名和密码的按钮。实际做项目的时候删除掉就可以了。</p>
+</div></blockquote>
+<p><a class="reference external" href="http://filedown.tjc1688.com/USARTHMI/g_prj/17.rar">点击下载《增强型系列之用户存储(EEPROM)应用实例2》</a></p>
+</section>
+<hr class="docutils" />
+<section id="id25">
+<h2>18.单选框 复选框控件应用实例<a class="headerlink" href="#id25" title="永久链接至标题"></a></h2>
+<img alt="../_images/1_19.png" src="../_images/1_19.png" />
+<p>素材说明：单选框 复选框控件应用实例</p>
+<p><a class="reference external" href="http://filedown.tjc1688.com/USARTHMI/g_prj/18.zip">点击下载《单选框 复选框控件应用实例》</a></p>
+</section>
+<hr class="docutils" />
+<section id="id27">
+<h2>19.简易钢琴自动演奏实例<a class="headerlink" href="#id27" title="永久链接至标题"></a></h2>
+<dl>
+<dt>素材说明：</dt><dd><p>（X系列支持）</p>
+<p>该工程用于展示使用X系列做一个自动+手动弹奏简易电子琴的演示demo。主要涉及功能：</p>
+<p>1，音频播放指令。</p>
+<p>2，使用名称组(类似数组功能)</p>
+</dd>
+</dl>
+<p><a class="reference external" href="http://filedown.tjc1688.com/USARTHMI/g_prj/1001.rar">点击下载《简易钢琴自动演奏实例》</a></p>
+</section>
+<hr class="docutils" />
+<section id="id29">
+<h2>20.简易串口助手<a class="headerlink" href="#id29" title="永久链接至标题"></a></h2>
+<p>素材说明：（全系列支持，上位软件0.58及以上版本支持）该工程使用主动解析功能在屏幕上实现串口助手的功能。可以用来做一个串口助手成品设备，方便外出携带分析串口数据。</p>
+<p><a class="reference external" href="http://filedown.tjc1688.com/USARTHMI/g_prj/19.rar">点击下载《简易串口助手》</a></p>
+</section>
+<hr class="docutils" />
+<section id="arduino">
+<h2>21.ARDUINO和串口屏双向通讯<a class="headerlink" href="#arduino" title="永久链接至标题"></a></h2>
+<p>素材说明：ARDUINO和串口屏双向通讯</p>
+<p><a class="reference external" href="http://filedown.tjc1688.com/USARTHMI/g_prj/arduino.zip">点击下载《ARDUINO和串口屏双向通讯》</a></p>
+</section>
+<hr class="docutils" />
+<section id="id32">
+<h2>22.自定义好看的键盘<a class="headerlink" href="#id32" title="永久链接至标题"></a></h2>
+<p><a class="reference external" href="http://filedown.tjc1688.com/USARTHMI/g_prj/K0480x320.zip">点击下载《自定义好看的键盘》</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="default_project.html" class="btn btn-neutral float-left" title="标准出厂工程样例" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="other_project.html" class="btn btn-neutral float-right" title="网友提供应用样例" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, taojingchi.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

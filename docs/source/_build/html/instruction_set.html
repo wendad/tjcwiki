@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>指令集 &mdash; 淘晶驰资料中心 1.0.0 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="page-页面跳转指令" href="folder_instruction_set/1_page.html" />
+    <link rel="prev" title="4.与arduino mega联调" href="f_get_start/f_ide_debug/debug_with_arduino.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> 淘晶驰资料中心
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">淘晶驰教程:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="get_start.html">快速入门</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">基本指令集</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">基本指令集</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/1_page.html">page-页面跳转指令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/2_ref.html">ref-重绘控件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/3_click.html">click-激活控件的按下/弹起事件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/4_get.html">get-带格式获取变量值/常量值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/5_prints.html">prints-从串口打印一个变量/常量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/6_printh.html">printh-从串口打印16进制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/7_vis.html">vis-隐藏/显示控件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/8_tsw.html">tsw-控件触摸使能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/9_randset.html">randset-随机数范围设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/10_add.html">add-往曲线控件添加数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/11_cle.html">cle-清除曲线控件中的数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/12_addt.html">addt-曲线数据透传指令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/13_doevent.html">doevents-转让系统控制权给屏幕刷新</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/14_sendme.html">sendme-发送当前页面ID号到串口</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/15_covx.html">covx-变量类型转换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/16_strlen.html">strlen-字符串变量字符长度测试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/17_btlen.html">btlen-字符串变量字节长度测试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/18_substr.html">substr-字符串截取</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/19_spstr.html">spstr-字符串分割</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/20_touch_j.html">touch_j-触摸校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/21_ref_stop.html">ref_stop-暂停屏幕刷新</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/22_ref_star.html">ref_star-恢复屏幕刷新</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/23_com_stop.html">com_stop-暂停串口指令执行</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/24_com_star.html">com_star-恢复串口指令执行</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/25_code_c.html">code_c-清空串口指令缓冲区中还没有执行的所有指令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/26_rest.html">rest-复位串口屏</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/27_wepo.html">wepo-写入一个变量到用户存储区(EEPROM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/28_repo.html">repo-从用户存储区(EEPRO)读数据到一个变量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/29_wept.html">wept-透传数据写入用户存储区(EEPROM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/30_rept.html">rept-从用户存储区读取数据并透传发送到串口</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/31_cfgpio.html">cfgpio-扩展IO模式配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/32_crcrest.html">crcrest-复位crc初始值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/33_crcputs.html">crcputs-crc校验一个变量/常量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/34_crcputh.html">crcputh-crc校验一组Hex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/35_crcputu.html">crcputu-crc校验一段串口缓冲区数据(recmod=1时有效)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/36_setlayer.html">setlayer-运行中改变控件图层顺序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/37_move.html">move-控件移动</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/38_play.html">play-音频播放</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/39_twfile.html">twfile-串口透传文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/40_delfile.html">delfile-删除文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/41_refile.html">refile-重命名文件3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/42_findfile.html">findfile-查找文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/43_rdfile.html">rdfile-透传读文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/44_newfile.html">newfile-创建文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/45_newdir.html">newdir-创建文件夹</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/46_deldir.html">deldir-删除文件夹</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/47_redir.html">redir-重命名文件夹</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/48_finddir.html">finddir-查找文件夹</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gui">GUI绘图指令详解</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/49_cls.html">cls-清屏指令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/50_pic.html">pic-刷图指令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/51_picq.html">picq-切图指令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/52_xpic.html">xpic-高级切图指令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/53_xstr.html">xstr-写字指令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/54_fill.html">fill-区域填充指令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/55_line.html">line-画线指令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/56_draw.html">draw-画矩形</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/57_cir.html">cir-画空心圆</a></li>
+<li class="toctree-l3"><a class="reference internal" href="folder_instruction_set/58_cirs.html">cirs-画实心圆</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#hmi">串口HMI颜色代号表</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="code_grammar.html">书写语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system_variables.html">系统变量</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_return.html">串口HMI设备返回数据格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="name_array.html">名称组使用说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_applications.html">HMI高级应用与特殊指令详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usarthmi_download.html">上位机下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widget_interpretation.html">控件详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example.html">工程样例下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="video_tutorial.html">视频教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Q_and_A.html">基础问题集锦</a></li>
+<li class="toctree-l1"><a class="reference internal" href="product_datasheet.html">产品选型和规格书</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">淘晶驰资料中心</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>指令集</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/instruction_set.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>指令集<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<section id="id2">
+<h2>基本指令集<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/1_page.html">page-页面跳转指令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/2_ref.html">ref-重绘控件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/3_click.html">click-激活控件的按下/弹起事件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/4_get.html">get-带格式获取变量值/常量值</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/5_prints.html">prints-从串口打印一个变量/常量</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/6_printh.html">printh-从串口打印16进制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/7_vis.html">vis-隐藏/显示控件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/8_tsw.html">tsw-控件触摸使能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/9_randset.html">randset-随机数范围设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/10_add.html">add-往曲线控件添加数据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/11_cle.html">cle-清除曲线控件中的数据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/12_addt.html">addt-曲线数据透传指令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/13_doevent.html">doevents-转让系统控制权给屏幕刷新</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/14_sendme.html">sendme-发送当前页面ID号到串口</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/15_covx.html">covx-变量类型转换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/16_strlen.html">strlen-字符串变量字符长度测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/17_btlen.html">btlen-字符串变量字节长度测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/18_substr.html">substr-字符串截取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/19_spstr.html">spstr-字符串分割</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/20_touch_j.html">touch_j-触摸校准</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/21_ref_stop.html">ref_stop-暂停屏幕刷新</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/22_ref_star.html">ref_star-恢复屏幕刷新</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/23_com_stop.html">com_stop-暂停串口指令执行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/24_com_star.html">com_star-恢复串口指令执行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/25_code_c.html">code_c-清空串口指令缓冲区中还没有执行的所有指令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/26_rest.html">rest-复位串口屏</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/27_wepo.html">wepo-写入一个变量到用户存储区(EEPROM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/28_repo.html">repo-从用户存储区(EEPRO)读数据到一个变量</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/29_wept.html">wept-透传数据写入用户存储区(EEPROM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/30_rept.html">rept-从用户存储区读取数据并透传发送到串口</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/31_cfgpio.html">cfgpio-扩展IO模式配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/32_crcrest.html">crcrest-复位crc初始值</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/33_crcputs.html">crcputs-crc校验一个变量/常量</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/34_crcputh.html">crcputh-crc校验一组Hex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/35_crcputu.html">crcputu-crc校验一段串口缓冲区数据(recmod=1时有效)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/36_setlayer.html">setlayer-运行中改变控件图层顺序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/37_move.html">move-控件移动</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/38_play.html">play-音频播放</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/39_twfile.html">twfile-串口透传文件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/40_delfile.html">delfile-删除文件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/41_refile.html">refile-重命名文件3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/42_findfile.html">findfile-查找文件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/43_rdfile.html">rdfile-透传读文件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/44_newfile.html">newfile-创建文件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/45_newdir.html">newdir-创建文件夹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/46_deldir.html">deldir-删除文件夹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/47_redir.html">redir-重命名文件夹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/48_finddir.html">finddir-查找文件夹</a></li>
+</ul>
+</div>
+</section>
+<section id="gui">
+<h2>GUI绘图指令详解<a class="headerlink" href="#gui" title="永久链接至标题"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/49_cls.html">cls-清屏指令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/50_pic.html">pic-刷图指令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/51_picq.html">picq-切图指令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/52_xpic.html">xpic-高级切图指令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/53_xstr.html">xstr-写字指令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/54_fill.html">fill-区域填充指令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/55_line.html">line-画线指令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/56_draw.html">draw-画矩形</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/57_cir.html">cir-画空心圆</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder_instruction_set/58_cirs.html">cirs-画实心圆</a></li>
+</ul>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>GUI绘图指令主要应用在如下场合：当上位界面编辑软件无法实现您的某些特殊显示要求的时候，使用GUI指令自己绘图来实现自己想要的显示效果。大多数情况下其实是不需要使用这些绘图指令的，大多数的应用都可以通过界面编辑软件的控件操作来实现。</p>
+</div>
+</section>
+<section id="hmi">
+<h2>串口HMI颜色代号表<a class="headerlink" href="#hmi" title="永久链接至标题"></a></h2>
+<table class="colwidths-given docutils align-default" id="id3">
+<caption><span class="caption-text">所有代号的书写均为大写</span><a class="headerlink" href="#id3" title="永久链接至表格"></a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>代号</p></th>
+<th class="head"><p>10进制</p></th>
+<th class="head"><p>所表示的颜色</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RED</p></td>
+<td><p>63488</p></td>
+<td><p>红色</p></td>
+</tr>
+<tr class="row-odd"><td><p>BLUE</p></td>
+<td><p>31</p></td>
+<td><p>蓝色</p></td>
+</tr>
+<tr class="row-even"><td><p>GRAY</p></td>
+<td><p>33840</p></td>
+<td><p>灰色</p></td>
+</tr>
+<tr class="row-odd"><td><p>BLACK</p></td>
+<td><p>0</p></td>
+<td><p>黑色</p></td>
+</tr>
+<tr class="row-even"><td><p>WHITE</p></td>
+<td><p>65535</p></td>
+<td><p>白色</p></td>
+</tr>
+<tr class="row-odd"><td><p>GREEN</p></td>
+<td><p>2016</p></td>
+<td><p>绿色</p></td>
+</tr>
+<tr class="row-even"><td><p>BROWN</p></td>
+<td><p>48192</p></td>
+<td><p>橙色</p></td>
+</tr>
+<tr class="row-odd"><td><p>YELLOW</p></td>
+<td><p>65504</p></td>
+<td><p>黄色</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="f_get_start/f_ide_debug/debug_with_arduino.html" class="btn btn-neutral float-left" title="4.与arduino mega联调" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="folder_instruction_set/1_page.html" class="btn btn-neutral float-right" title="page-页面跳转指令" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, taojingchi.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

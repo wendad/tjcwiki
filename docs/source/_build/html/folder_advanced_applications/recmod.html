@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>一.主动解析模式应用详解 &mdash; 淘晶驰资料中心 1.0.0 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="二.HMI下载协议详解/OTA升级" href="hmi_download_protocol.html" />
+    <link rel="prev" title="HMI高级应用与特殊指令详解" href="../advanced_applications.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> 淘晶驰资料中心
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">淘晶驰教程:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../get_start.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../instruction_set.html">基本指令集</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code_grammar.html">书写语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system_variables.html">系统变量</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_return.html">串口HMI设备返回数据格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../name_array.html">名称组使用说明</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../advanced_applications.html">HMI高级应用与特殊指令详解</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">一.主动解析模式应用详解</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hmi_download_protocol.html">二.HMI下载协议详解/OTA升级</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crc.html">三.串口指令增加CRC校验</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crc2.html">四.程序中使用CRC校验数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transmit_data.html">五.运行中串口传输图片到内存或SD卡</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../usarthmi_download.html">上位机下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../widget_interpretation.html">控件详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">工程样例下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video_tutorial.html">视频教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Q_and_A.html">基础问题集锦</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../product_datasheet.html">产品选型和规格书</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">淘晶驰资料中心</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../advanced_applications.html">HMI高级应用与特殊指令详解</a> &raquo;</li>
+      <li>一.主动解析模式应用详解</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/folder_advanced_applications/recmod.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>一.主动解析模式应用详解<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<p>屏幕上电默认是被动解析模式，所有串口指令需按照指令集中的格式来对屏幕进行操作，假如你需要自定义协议，不按照指令集格式来发串口数据给屏幕，而使用你自定义的格式，那么就需要把屏幕配置为主动解析模式。要使用此功能，请务必确保你有以下2点基础：</p>
+<p>1.明白什么叫HEX,什么叫String,什么叫ASCII,分别什么关系，怎么转换。</p>
+<p>2.明白单字节数值，双字节数值，四字节数值，分别有什么区别，它们在内存中是什么样的储存方式，明白什么叫小端模式，什么叫大端模式。明白低位在前是什么含义。</p>
+<p>如果以上2点你都比较明白，那么请继续往下看，否则强烈建议不要再继续往下看了，因为大多数的项目是用不上这个功能的，使用默认的被动解析模式就可以了，没必要配置为下面的主动解析模式。</p>
+<p>此篇幅涉及到以下几个内容:</p>
+<p>1.串口数据解析模式系统变量:recmod</p>
+<p>2.串口缓冲区数据大小系统变量:usize</p>
+<p>3.串口缓冲区数据组:u[index]</p>
+<p>4.串口缓冲区数据拷贝指令:ucopy</p>
+<p>5.串口数据解析模式退出密码</p>
+<p>1.串口数据解析模式系统变量recmod(0为被动解析模式，1为主动解析模式)</p>
+<p>屏幕上电recmod为0，即被动解析模式，在此模式下，外部设备按照标准指令集的指令格式发送串口指令给屏幕执行；如果你将recmod 设置为1(可以在上电默认页的初始化事件中写上recmod=1即可)，那么屏幕进入主动解析模式，然后所有的串口指令都不会被执行(注意：是串口指令不会被执行，上位软件编辑界面时写入事件中的固件指令是不会受影响的，依然正常执行)，所有的串口数据均存放在串口缓冲区中，等待您去主动读取。每次读完数据后，使用udelete指令删除缓冲区中已经读取的字节数，否则缓冲区溢出后就无法接收新数据。</p>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>用上位机软件模拟器联机屏幕，屏幕将会强制退出主动解析模式，此时需要将屏重新上电才可以正常模拟器联机调试屏幕。</p>
+</div>
+<p>2.串口缓冲区数据大小系统变量usize(只能读取，不可设置)</p>
+<p>读取此变量可以知道当前串口缓冲区已经缓存多少数据。</p>
+<p>定时器里每次进入解析之前，必须先判断usize的值大于1个数据帧的长度，才能进入正常的解析！！！</p>
+<p>以下代码仅供参考</p>
+<img alt="../_images/1_15.png" src="../_images/1_15.png" />
+<p>3.串口缓冲区数据组</p>
+<p>串口缓冲区数据组的写法为u[index]   (index为序号)</p>
+<p>例1：从缓冲区中0位置开始获取一个1字节的数值，赋值给数字控件n0, 写法如下:</p>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="p">=</span><span class="n">u</span><span class="p">[</span><span class="m">0</span><span class="p">]</span><span class="w"></span>
+</pre></div>
+</div>
+<p>例2: 从缓冲区中0位置开始获取一个2字节的数值(小端模式，低位在前)，赋值给数字控件n0, 写法如下:</p>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="p">=</span><span class="n">u</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"></span>
+<span class="linenos">2</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="p">&lt;&lt;=</span><span class="m">8</span><span class="w"></span>
+<span class="linenos">3</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="p">+=</span><span class="n">u</span><span class="p">[</span><span class="m">0</span><span class="p">]</span><span class="w"></span>
+</pre></div>
+</div>
+<p>例3: 从缓冲区中0位置开始获取一个4字节的数值(小端模式，低位在前)，赋值给数字控件n0, 写法如下:</p>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="p">=</span><span class="n">u</span><span class="p">[</span><span class="m">3</span><span class="p">]</span><span class="w"></span>
+<span class="linenos">2</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="p">&lt;&lt;=</span><span class="m">8</span><span class="w"></span>
+<span class="linenos">3</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="p">+=</span><span class="n">u</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="w"></span>
+<span class="linenos">4</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="p">&lt;&lt;=</span><span class="m">8</span><span class="w"></span>
+<span class="linenos">5</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="p">+=</span><span class="n">u</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"></span>
+<span class="linenos">6</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="p">&lt;&lt;=</span><span class="m">8</span><span class="w"></span>
+<span class="linenos">7</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="p">+=</span><span class="n">u</span><span class="p">[</span><span class="m">0</span><span class="p">]</span><span class="w"></span>
+</pre></div>
+</div>
+<p>难道对一个4字节的整型变量赋值缓冲区中的内容只能是分4次单字节赋值再加3次移位吗？ 当然不是！当然有更方便的做法，请继续往下看!</p>
+<p>4.串口缓冲区数据拷贝指令ucopy</p>
+<p>格式: ucopy,att, srcstar, lenth, decstar</p>
+<p>说明：将串口缓冲区中的数据拷贝到变量中(recmod=1模式下有效)</p>
+<p>att:目标变量名称</p>
+<p>srcstar:串口缓冲区数据起始位</p>
+<p>lenth:拷贝长度</p>
+<p>decstar:目标变量数据起始位</p>
+<p>此指令可以从串口缓冲区的指定位置连续拷贝指定数量的数据到目标变量(目标变量可以是字符串变量，可以是数值变量)。</p>
+<p>例1：从缓冲区中0位置开始获取一个4字节的数值(小端模式，低位在前)，赋值给数字控件n0, 写法如下:</p>
+<p>ucopy n0.val,0,4,0
+udelete 4      删除缓冲区中前面4个字节，如果后面还有其他数据，会自动顶上来
+温馨提示：每个数值变量系统都是按4字节分配内存，假如你使用ucopy从缓冲区获取小于4字节的数值，一定要注意剩余部分的字节数据处理，以免出现数据异常，操作方法请参考下面这个例子：</p>
+<p>例2: 从缓冲区中0位置开始获取一个2字节的数值(小端模式，低位在前)，赋值给数字控件n0.val的低16位, 写法如下:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>n0.val<span class="o">=</span><span class="m">0</span>
+<span class="linenos">2</span>ucopy n0.val,0,2,0     如果要赋值给高16位，就写成ucopy n0.val,0,2,2
+<span class="linenos">3</span>udelete <span class="m">2</span>      删除缓冲区中前面2个字节，如果后面还有其他数据，会自动顶上来
+</pre></div>
+</div>
+<p>解释：先将n0.val赋值为0，目的在于确保n0.val的4个字节全置0，然后再从缓冲区拷贝2个字节进来，否则会因为你只拷了2字节而导致n0.val原来剩下的2字节数据还在，然后导致n0.val最终的数值并不是你想要的数值。</p>
+<p>例3: 从缓冲区中0位置开始获取一个10字节的字符串，赋值给文本控件t0, 写法如下:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">if</span><span class="o">(</span>usize&gt;<span class="o">=</span><span class="m">10</span><span class="o">)</span>             确保缓冲区数据大小足够10个
+<span class="linenos">2</span><span class="o">{</span>
+<span class="linenos">3</span>   ucopy t0.txt,0,10,0
+<span class="linenos">4</span>   udelete <span class="m">10</span>                删除缓冲区中前面10个字节，如果后面还有其他数据，会自动顶上来
+<span class="linenos">5</span><span class="o">}</span>
+</pre></div>
+</div>
+<p>重要提示：code_c指令会将缓冲区数据清空，有可能会导致还没有读取的数据就被提前删除，所以在主动解析模式下建议使用udelete指令来删除已经读取的内容，而不要使用code_c指令。</p>
+<p>以上案例中使用的所有语句，指令，都是在上位编辑界面下，写入事件中的固件指令，串口一旦配置为主动解析模式，就不能再执行串口指令了，所以必须是由固件指令来操作读取串口数据，而不能是通过串口指令操作(否则就自相矛盾了)。</p>
+<p>5.退出主动解析模式</p>
+<p>常规的退出主动解析模式方法是在事件中写入recmod=0的固件指令，如果想通过串口数据来退出，串口发送recmod=0是肯定没有用的，可以通过发送一串退出密码来实现退出主动解析模式,退出密码为一串24字节的字符串+3字节的结束符。</p>
+<p>24字节的字符串:</p>
+<p>DRAKJHSUYDGBNCJHGJKSHBDN  (字符串数据，必须大写)</p>
+<p>3字节的结束符(Hex数据)：</p>
+<p>0xff 0xff 0xff</p>
+<p>合计27字节</p>
+<p><a class="reference external" href="http://filedown.tjc1688.com/USARTHMI/demo_prj/Activeanalysis.zip">主动解析-点灯 点击下载</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../advanced_applications.html" class="btn btn-neutral float-left" title="HMI高级应用与特殊指令详解" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="hmi_download_protocol.html" class="btn btn-neutral float-right" title="二.HMI下载协议详解/OTA升级" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, taojingchi.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>页面控件 &mdash; 淘晶驰资料中心 1.0.0 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="工程样例下载" href="../example.html" />
+    <link rel="prev" title="系统键盘" href="keyboard.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> 淘晶驰资料中心
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">淘晶驰教程:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../get_start.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../instruction_set.html">基本指令集</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code_grammar.html">书写语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system_variables.html">系统变量</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_return.html">串口HMI设备返回数据格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../name_array.html">名称组使用说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_applications.html">HMI高级应用与特殊指令详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usarthmi_download.html">上位机下载</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../widget_interpretation.html">控件详解</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="keyboard.html">系统键盘</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">页面控件</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">一、页面控件-概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">认识控件</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">一、 控件是什么？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">二、 控件种类有多少？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">三、 控件属性是什么？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">四、 控件事件是什么？</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">工程样例下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video_tutorial.html">视频教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Q_and_A.html">基础问题集锦</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../product_datasheet.html">产品选型和规格书</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">淘晶驰资料中心</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../widget_interpretation.html">控件详解</a> &raquo;</li>
+      <li>页面控件</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/f_widget_interpretation/cmp_page.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>页面控件<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<section id="id2">
+<h2>一、页面控件-概述<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<p>在上位机软件中每新建一个页面,会自动在页面中创建一个页面控件,其id固定为0,页面控件名称与页面名称一致</p>
+<p>串口屏所有控件操作的实质都是对属性的修改。页面控件具有的属性如下表所示。</p>
+<img alt="../_images/2_1.png" src="../_images/2_1.png" />
+<p>如下图所示，当鼠标选中对应属性时，会在属性窗口的最下方出现该属性的详细描述信息</p>
+<img alt="../_images/2_2.png" src="../_images/2_2.png" />
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>可以通过设置页面的up/down/left/right属性来设置上划下划左划右划分别跳转到哪个页面</p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>控件的属性分为黑色和绿色,黑色为不可调整或者只能在上位机中编辑,绿色属性可以通过指令进行修改</p>
+</div>
+</section>
+<section id="id3">
+<h2>认识控件<a class="headerlink" href="#id3" title="永久链接至标题"></a></h2>
+<section id="id4">
+<h3>一、 控件是什么？<a class="headerlink" href="#id4" title="永久链接至标题"></a></h3>
+<p>控件是串口屏想实现相关功能的“功能组件”，需要串口屏显示什么内容就使用相对应的控件。</p>
+<p>例如：</p>
+<blockquote>
+<div><p>显示文本，用【文本控件】</p>
+<p>显示图片，用【图片控件】</p>
+<p>显示进度，用【进度条控件】</p>
+<p>实现按键功能，用【按钮控件】</p>
+<p>实现滑动功能，用【滑块控件】</p>
+<p>要播放视频，用【视频控件】</p>
+<p>••• •••</p>
+</div></blockquote>
+<p>在串口屏上位机的界面编辑窗口中,一切你能看到的,都是控件</p>
+<img alt="../_images/3_1.png" src="../_images/3_1.png" />
+<p>选中任一控件,可以在左下角看到其属性栏</p>
+<img alt="../_images/3_210.png" src="../_images/3_210.png" />
+<p>控件属性有2中颜色,分别为绿色和黑色</p>
+<p>绿色属性:控件编辑时可设置+运行中可改变</p>
+<img alt="../_images/3_310.png" src="../_images/3_310.png" />
+<p>黑色属性:控件编辑时可设置（运行中不可改变）</p>
+<img alt="../_images/3_410.png" src="../_images/3_410.png" />
+<img alt="../_images/3_510.png" src="../_images/3_510.png" />
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>type属性不可设置,objname属性不可读取,id属性需要通过左上角置顶置底按钮才能进行更改</p>
+</div>
+</section>
+<section id="id5">
+<h3>二、 控件种类有多少？<a class="headerlink" href="#id5" title="永久链接至标题"></a></h3>
+<p>《USART HMI》，目前已有“30种”控件，具体是哪些控件请打开软件查看控件“工具箱”查阅（控件工具箱位置如下图所示），同时我们根据市场需求会持续增加新控件。</p>
+<img alt="../_images/3_6.jpg" src="../_images/3_6.jpg" />
+</section>
+<section id="id6">
+<h3>三、 控件属性是什么？<a class="headerlink" href="#id6" title="永久链接至标题"></a></h3>
+<p>1、控件属性描述</p>
+<p>控件属性是控件自己的一些设置项，上面提到想要什么功能就选择对应的控件，比如想要显示文本，就用文本控件，但是选择文本控件后，显示什么内容？什么字体？字体什么颜色？文本背景什么颜色？字体间距多少等等这些信息怎么设置呢？这就需要属性来定义了，这些信息都属于这个文本控件的属性，每个控件都有很多属性可以设置，用来定义他的显示风格。</p>
+<p>通过对属性的简单编辑，便可将控件设置成您需要的效果；</p>
+<p>2、控件属性读写</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span> <span class="nv">sys0</span><span class="o">=</span>t0.id              将文本控件t0的id号赋值给sys0变量
+<span class="linenos">2</span> t0.x+<span class="o">=</span><span class="m">10</span>                将文本控件在屏幕上的位置向右移动10个像素点<span class="o">(</span>仅X系列支持<span class="o">)</span>。
+<span class="linenos">3</span> prints t0.txt,0         将t0的文本内容从串口发送出去。
+</pre></div>
+</div>
+</section>
+<section id="id7">
+<h3>四、 控件事件是什么？<a class="headerlink" href="#id7" title="永久链接至标题"></a></h3>
+<p>控件事件，指的是这个控件被操作时要执行的功能。</p>
+<p>目前各种控件综合起来被操作的方式有以下几种类型：</p>
+<p>1、触摸被按下：对应名称叫做【按下事件】</p>
+<p>2、触摸被按下后弹起：对应名称叫做【弹起事件】</p>
+<p>3、滑块控件被滑动：对应的名称叫做【滑动事件】</p>
+<p>4、定时器定时运行：对应的名称叫做【定时事件】</p>
+<p>5、动画播放完成：对应的名称叫做【播放完成事件】</p>
+<p>6、视频播放完成：对应的名称叫做【播放完成事件】</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="keyboard.html" class="btn btn-neutral float-left" title="系统键盘" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../example.html" class="btn btn-neutral float-right" title="工程样例下载" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, taojingchi.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

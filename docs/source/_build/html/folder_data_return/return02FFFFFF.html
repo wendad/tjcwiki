@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>02 FF FF FF 控件ID无效 &mdash; 淘晶驰资料中心 1.0.0 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="03 FF FF FF 页面ID无效" href="return03FFFFFF.html" />
+    <link rel="prev" title="01 FF FF FF 指令成功执行" href="return01FFFFFF.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> 淘晶驰资料中心
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">淘晶驰教程:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../get_start.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../instruction_set.html">基本指令集</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code_grammar.html">书写语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system_variables.html">系统变量</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../data_return.html">串口HMI设备返回数据格式</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../data_return.html#bkcmd0">bkcmd非0时的通知格式</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="return00FFFFFF.html">00 FF FF FF 无效指令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="return01FFFFFF.html">01 FF FF FF 指令成功执行</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">02 FF FF FF 控件ID无效</a></li>
+<li class="toctree-l3"><a class="reference internal" href="return03FFFFFF.html">03 FF FF FF 页面ID无效</a></li>
+<li class="toctree-l3"><a class="reference internal" href="return04FFFFFF.html">04 FF FF FF 图片ID无效</a></li>
+<li class="toctree-l3"><a class="reference internal" href="return05FFFFFF.html">05 FF FF FF 字库ID无效</a></li>
+<li class="toctree-l3"><a class="reference internal" href="return06FFFFFF.html">06 FF FF FF 文件操作失败</a></li>
+<li class="toctree-l3"><a class="reference internal" href="return09FFFFFF.html">09 FF FF FF CRC校验失败</a></li>
+<li class="toctree-l3"><a class="reference internal" href="return11FFFFFF.html">11 FF FF FF 波特率设置无效</a></li>
+<li class="toctree-l3"><a class="reference internal" href="return12FFFFFF.html">12 FF FF FF 曲线控件ID号或通道号无效</a></li>
+<li class="toctree-l3"><a class="reference internal" href="return1AFFFFFF.html">1A FF FF FF 变量名称无效</a></li>
+<li class="toctree-l3"><a class="reference internal" href="return1BFFFFFF.html">1B FF FF FF 变量运算无效</a></li>
+<li class="toctree-l3"><a class="reference internal" href="return1CFFFFFF.html">1C FF FF FF 赋值操作失败</a></li>
+<li class="toctree-l3"><a class="reference internal" href="return1DFFFFFF.html">1D FF FF FF EEPROM操作失败</a></li>
+<li class="toctree-l3"><a class="reference internal" href="return1EFFFFFF.html">1E FF FF FF 参数数量无效</a></li>
+<li class="toctree-l3"><a class="reference internal" href="return1FFFFFFF.html">1F FF FF FF IO操作失败</a></li>
+<li class="toctree-l3"><a class="reference internal" href="return20FFFFFF.html">20 FF FF FF 转义字符使用错误</a></li>
+<li class="toctree-l3"><a class="reference internal" href="return23FFFFFF.html">23 FF FF FF 变量名称太长</a></li>
+<li class="toctree-l3"><a class="reference internal" href="return24FFFFFF.html">24 FF FF FF 串口缓冲区溢出</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../data_return.html#id2">其他数据返回格式</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../name_array.html">名称组使用说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_applications.html">HMI高级应用与特殊指令详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usarthmi_download.html">上位机下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../widget_interpretation.html">控件详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">工程样例下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video_tutorial.html">视频教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Q_and_A.html">基础问题集锦</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../product_datasheet.html">产品选型和规格书</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">淘晶驰资料中心</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../data_return.html">数据返回格式</a> &raquo;</li>
+      <li>02 FF FF FF 控件ID无效</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/folder_data_return/return02FFFFFF.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ff-ff-ff-id">
+<h1>02 FF FF FF 控件ID无效<a class="headerlink" href="#ff-ff-ff-id" title="永久链接至标题"></a></h1>
+<p>0X02+结束符</p>
+<p>(用户发来的指令中包含无效控件ID或者无效控件名称时返回此数据)</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="return01FFFFFF.html" class="btn btn-neutral float-left" title="01 FF FF FF 指令成功执行" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="return03FFFFFF.html" class="btn btn-neutral float-right" title="03 FF FF FF 页面ID无效" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, taojingchi.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

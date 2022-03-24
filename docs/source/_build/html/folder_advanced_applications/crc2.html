@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>四.程序中使用CRC校验数据 &mdash; 淘晶驰资料中心 1.0.0 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="五.运行中串口传输图片到内存或SD卡" href="transmit_data.html" />
+    <link rel="prev" title="三.串口指令增加CRC校验" href="crc.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> 淘晶驰资料中心
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">淘晶驰教程:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../get_start.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../instruction_set.html">基本指令集</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code_grammar.html">书写语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system_variables.html">系统变量</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_return.html">串口HMI设备返回数据格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../name_array.html">名称组使用说明</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../advanced_applications.html">HMI高级应用与特殊指令详解</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="recmod.html">一.主动解析模式应用详解</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hmi_download_protocol.html">二.HMI下载协议详解/OTA升级</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crc.html">三.串口指令增加CRC校验</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">四.程序中使用CRC校验数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transmit_data.html">五.运行中串口传输图片到内存或SD卡</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../usarthmi_download.html">上位机下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../widget_interpretation.html">控件详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">工程样例下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video_tutorial.html">视频教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Q_and_A.html">基础问题集锦</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../product_datasheet.html">产品选型和规格书</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">淘晶驰资料中心</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../advanced_applications.html">HMI高级应用与特殊指令详解</a> &raquo;</li>
+      <li>四.程序中使用CRC校验数据</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/folder_advanced_applications/crc2.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="crc">
+<h1>四.程序中使用CRC校验数据<a class="headerlink" href="#crc" title="永久链接至标题"></a></h1>
+<p>(1.60.1及其以上上位机版本支持)</p>
+<p>1.以下代码将实现屏幕给外部设备发送2组常量数据，并在结尾带上Modbus的CRC16校验结果：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">crcrest</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mh">0xffff</span><span class="w">              </span><span class="n">复位CRC</span><span class="w"></span>
+<span class="linenos">2</span><span class="n">crcputs</span><span class="w"> </span><span class="s">&quot;hex date is:&quot;</span><span class="p">,</span><span class="mi">0</span><span class="w">      </span><span class="n">CRC校验字符串</span><span class="o">:</span><span class="n">hex</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="n">is</span><span class="o">:</span><span class="w"></span>
+<span class="linenos">3</span><span class="n">crcputh</span><span class="w"> </span><span class="mo">03</span><span class="w"> </span><span class="mi">25</span><span class="w">                 </span><span class="n">CRC校验hex</span><span class="o">:</span><span class="mh">0x03</span><span class="p">,</span><span class="mh">0x25</span><span class="w"></span>
+<span class="linenos">4</span><span class="n">prints</span><span class="w"> </span><span class="s">&quot;hex date is:&quot;</span><span class="p">,</span><span class="mi">0</span><span class="w">       </span><span class="n">串口发送字符串</span><span class="o">:</span><span class="n">hex</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="n">is</span><span class="o">:</span><span class="w"></span>
+<span class="linenos">5</span><span class="n">printh</span><span class="w"> </span><span class="mo">03</span><span class="w"> </span><span class="mi">25</span><span class="w">                  </span><span class="n">串口发送hex</span><span class="o">:</span><span class="mh">0x03</span><span class="p">,</span><span class="mh">0x25</span><span class="w"></span>
+<span class="linenos">6</span><span class="n">prints</span><span class="w"> </span><span class="n">crcval</span><span class="p">,</span><span class="mi">2</span><span class="w">               </span><span class="n">串口发送校验结果</span><span class="w"></span>
+</pre></div>
+</div>
+<p>2.以下代码将实现屏幕给外部设备发送2组变量数据，并在结尾带上Modbus的CRC16校验结果：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">crcrest</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mh">0xffff</span><span class="w">              </span><span class="n">复位CRC</span><span class="w"></span>
+<span class="linenos">2</span><span class="n">crcputs</span><span class="w"> </span><span class="n">t0</span><span class="p">.</span><span class="n">txt</span><span class="p">,</span><span class="mi">0</span><span class="w">              </span><span class="n">CRC校验字符串变量t0</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="linenos">3</span><span class="n">crcputs</span><span class="w"> </span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="p">,</span><span class="mi">0</span><span class="w">              </span><span class="n">CRC校验数值变量n0</span><span class="p">.</span><span class="n">val</span><span class="w"></span>
+<span class="linenos">4</span><span class="n">prints</span><span class="w"> </span><span class="n">t0</span><span class="p">.</span><span class="n">txt</span><span class="p">,</span><span class="mi">0</span><span class="w">               </span><span class="n">串口发送字符串变量t0</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="linenos">5</span><span class="n">prints</span><span class="w"> </span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="p">,</span><span class="mi">4</span><span class="w">               </span><span class="n">串口发送数值变量n0</span><span class="p">.</span><span class="n">val</span><span class="w"></span>
+<span class="linenos">6</span><span class="n">prints</span><span class="w"> </span><span class="n">crcval</span><span class="p">,</span><span class="mi">2</span><span class="w">               </span><span class="n">串口发送校验结果</span><span class="w"></span>
+</pre></div>
+</div>
+<p>3.以下代码将实现在主动解析模式下对串口缓冲区的数据进行CRC校验,并将成功与否的结果显示到t0.txt</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">if</span><span class="o">(</span>usize&gt;<span class="o">=</span><span class="m">24</span><span class="o">)</span>
+<span class="linenos"> 2</span><span class="o">{</span>
+<span class="linenos"> 3</span>   crcrest <span class="m">1</span>,0xffff         复位CRC
+<span class="linenos"> 4</span>   crcputu <span class="m">0</span>,22             校验串口缓冲区的前面22个字节
+<span class="linenos"> 5</span>   <span class="nv">sys0</span><span class="o">=</span><span class="m">0</span>                   sys0是4字节的整形数据,CRC结果只有2字节，所以先给多余字节数据清零
+<span class="linenos"> 6</span>   ucopy sys0,22,2,0        将接收缓冲区中接收到的CRC结果赋值给sys0
+<span class="linenos"> 7</span><span class="k">if</span><span class="o">(</span><span class="nv">sys0</span><span class="o">==</span>crcval<span class="o">)</span>校验通过
+<span class="linenos"> 8</span><span class="o">{</span>
+<span class="linenos"> 9</span>   t0.txt<span class="o">=</span><span class="s2">&quot;校验通过&quot;</span>
+<span class="linenos">10</span><span class="o">}</span><span class="k">else</span>
+<span class="linenos">11</span><span class="o">{</span>
+<span class="linenos">12</span>   t0.txt<span class="o">=</span><span class="s2">&quot;校验不通过&quot;</span>
+<span class="linenos">13</span><span class="o">}</span>
+<span class="linenos">14</span>   udelete <span class="m">24</span>               删除已经处理的24字节
+<span class="linenos">15</span><span class="o">}</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="crc.html" class="btn btn-neutral float-left" title="三.串口指令增加CRC校验" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="transmit_data.html" class="btn btn-neutral float-right" title="五.运行中串口传输图片到内存或SD卡" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, taojingchi.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

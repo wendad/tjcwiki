@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>crcputu-crc校验一段串口缓冲区数据(recmod=1时有效) &mdash; 淘晶驰资料中心 1.0.0 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="setlayer-运行中改变控件图层顺序" href="36_setlayer.html" />
+    <link rel="prev" title="crcputh-crc校验一组Hex" href="34_crcputh.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> 淘晶驰资料中心
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">淘晶驰教程:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../get_start.html">快速入门</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../instruction_set.html">基本指令集</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../instruction_set.html#id2">基本指令集</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="1_page.html">page-页面跳转指令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_ref.html">ref-重绘控件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_click.html">click-激活控件的按下/弹起事件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_get.html">get-带格式获取变量值/常量值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_prints.html">prints-从串口打印一个变量/常量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_printh.html">printh-从串口打印16进制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_vis.html">vis-隐藏/显示控件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_tsw.html">tsw-控件触摸使能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_randset.html">randset-随机数范围设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_add.html">add-往曲线控件添加数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_cle.html">cle-清除曲线控件中的数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="12_addt.html">addt-曲线数据透传指令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="13_doevent.html">doevents-转让系统控制权给屏幕刷新</a></li>
+<li class="toctree-l3"><a class="reference internal" href="14_sendme.html">sendme-发送当前页面ID号到串口</a></li>
+<li class="toctree-l3"><a class="reference internal" href="15_covx.html">covx-变量类型转换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="16_strlen.html">strlen-字符串变量字符长度测试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="17_btlen.html">btlen-字符串变量字节长度测试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="18_substr.html">substr-字符串截取</a></li>
+<li class="toctree-l3"><a class="reference internal" href="19_spstr.html">spstr-字符串分割</a></li>
+<li class="toctree-l3"><a class="reference internal" href="20_touch_j.html">touch_j-触摸校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="21_ref_stop.html">ref_stop-暂停屏幕刷新</a></li>
+<li class="toctree-l3"><a class="reference internal" href="22_ref_star.html">ref_star-恢复屏幕刷新</a></li>
+<li class="toctree-l3"><a class="reference internal" href="23_com_stop.html">com_stop-暂停串口指令执行</a></li>
+<li class="toctree-l3"><a class="reference internal" href="24_com_star.html">com_star-恢复串口指令执行</a></li>
+<li class="toctree-l3"><a class="reference internal" href="25_code_c.html">code_c-清空串口指令缓冲区中还没有执行的所有指令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="26_rest.html">rest-复位串口屏</a></li>
+<li class="toctree-l3"><a class="reference internal" href="27_wepo.html">wepo-写入一个变量到用户存储区(EEPROM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="28_repo.html">repo-从用户存储区(EEPRO)读数据到一个变量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29_wept.html">wept-透传数据写入用户存储区(EEPROM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30_rept.html">rept-从用户存储区读取数据并透传发送到串口</a></li>
+<li class="toctree-l3"><a class="reference internal" href="31_cfgpio.html">cfgpio-扩展IO模式配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="32_crcrest.html">crcrest-复位crc初始值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="33_crcputs.html">crcputs-crc校验一个变量/常量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="34_crcputh.html">crcputh-crc校验一组Hex</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">crcputu-crc校验一段串口缓冲区数据(recmod=1时有效)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36_setlayer.html">setlayer-运行中改变控件图层顺序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="37_move.html">move-控件移动</a></li>
+<li class="toctree-l3"><a class="reference internal" href="38_play.html">play-音频播放</a></li>
+<li class="toctree-l3"><a class="reference internal" href="39_twfile.html">twfile-串口透传文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="40_delfile.html">delfile-删除文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="41_refile.html">refile-重命名文件3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="42_findfile.html">findfile-查找文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="43_rdfile.html">rdfile-透传读文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="44_newfile.html">newfile-创建文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="45_newdir.html">newdir-创建文件夹</a></li>
+<li class="toctree-l3"><a class="reference internal" href="46_deldir.html">deldir-删除文件夹</a></li>
+<li class="toctree-l3"><a class="reference internal" href="47_redir.html">redir-重命名文件夹</a></li>
+<li class="toctree-l3"><a class="reference internal" href="48_finddir.html">finddir-查找文件夹</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../instruction_set.html#gui">GUI绘图指令详解</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../instruction_set.html#hmi">串口HMI颜色代号表</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../code_grammar.html">书写语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system_variables.html">系统变量</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_return.html">串口HMI设备返回数据格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../name_array.html">名称组使用说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_applications.html">HMI高级应用与特殊指令详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usarthmi_download.html">上位机下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../widget_interpretation.html">控件详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">工程样例下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video_tutorial.html">视频教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Q_and_A.html">基础问题集锦</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../product_datasheet.html">产品选型和规格书</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">淘晶驰资料中心</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../instruction_set.html">指令集</a> &raquo;</li>
+      <li>crcputu-crc校验一段串口缓冲区数据(recmod=1时有效)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/folder_instruction_set/35_crcputu.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="crcputu-crc-recmod-1">
+<h1>crcputu-crc校验一段串口缓冲区数据(recmod=1时有效)<a class="headerlink" href="#crcputu-crc-recmod-1" title="永久链接至标题"></a></h1>
+<p>crcputu star,length</p>
+<p>star:串口缓冲区数据起始位</p>
+<p>length:需要校验的数据长度</p>
+<p>实例1:crcputu 0,22           (校验串口缓冲区的前面22个字节，recmod=1时有效)</p>
+<p>备注：</p>
+<p>1.使用crcputs或crcputh或crcputu校验指定数据,检验完毕读取系统变量crcval获得校验结果。</p>
+<p>2.完整的CRC校验实例代码请参考:程序中使用CRC校验数据</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="34_crcputh.html" class="btn btn-neutral float-left" title="crcputh-crc校验一组Hex" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="36_setlayer.html" class="btn btn-neutral float-right" title="setlayer-运行中改变控件图层顺序" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, taojingchi.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>第五章：与单片机联机调试 &mdash; 淘晶驰资料中心 1.0.0 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="基本指令集" href="../instruction_set.html" />
+    <link rel="prev" title="第四章：创建工程" href="create_project.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> 淘晶驰资料中心
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">淘晶驰教程:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../get_start.html">快速入门</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="download_ide.html">第一章：下载上位机软件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install_ide.html">第二章：安装上位机软件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ide_introduce.html">第三章：上位机基本功能介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_project.html">第四章：创建工程</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">第五章：与单片机联机调试</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">1.在没有串口屏的情况下进行调试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">2.与串口工具联调</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stm32-keil-mdk-5">3.与单片机(stm32 + Keil MDK 5)联调</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#arduino-mega">4.与arduino mega联调</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../instruction_set.html">基本指令集</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code_grammar.html">书写语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system_variables.html">系统变量</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_return.html">串口HMI设备返回数据格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../name_array.html">名称组使用说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_applications.html">HMI高级应用与特殊指令详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usarthmi_download.html">上位机下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../widget_interpretation.html">控件详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">工程样例下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video_tutorial.html">视频教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Q_and_A.html">基础问题集锦</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../product_datasheet.html">产品选型和规格书</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">淘晶驰资料中心</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../get_start.html">快速入门</a> &raquo;</li>
+      <li>第五章：与单片机联机调试</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/folder_get_start/ide_debug.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="toctree-wrapper compound">
+</div>
+<section id="id1">
+<h1>第五章：与单片机联机调试<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<section id="id2">
+<h2>1.在没有串口屏的情况下进行调试<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>淘晶驰串口屏的模拟器功能非常强大,您可以在没有串口屏实物的情况下通过模拟器进行调试</p>
+</div>
+<p>切换到main页面,点击工具箱中的文本,在main页面新建一个文本控件</p>
+<img alt="../_images/5_1.png" src="../_images/5_1.png" />
+<p>可以通过鼠标移动控件的位置和调整控件的大小</p>
+<img alt="../_images/5_2.png" src="../_images/5_2.png" />
+<p>点击调试,进入调试页面</p>
+<img alt="../_images/5_3.png" src="../_images/5_3.png" />
+<p>可以在底部的指令输入区输入指令,并点击执行来实现控件赋值,比如我们让文本控件t0显示”淘晶驰电子”</p>
+<img alt="../_images/5_4.png" src="../_images/5_4.png" />
+<p>指令如下:</p>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="w"> </span><span class="n">t0</span><span class="p">.</span><span class="n">txt</span><span class="p">=</span><span class="s">&quot;淘晶驰电子&quot;</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>赋值指令中的引号是英文的””而不是中文的“”</p>
+</div>
+<p>也可以修改文本控件的背景颜色,可以通过指令修改的是控件的”绿色属性”</p>
+<img alt="../_images/5_5.png" src="../_images/5_5.png" />
+<p>指令如下:</p>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="w"> </span><span class="n">t0</span><span class="p">.</span><span class="n">bco</span><span class="p">=</span><span class="n">YELLOW</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>t0.txt=”淘晶驰电子”和t0.bco=YELLOW的区别是一个加了引号,一个没有加引号,这是因为txt是字符串,bco则是整形,目前只有txt,path,dir,filter是字符串,其他均为整形</p>
+</div>
+</section>
+<section id="id3">
+<h2>2.与串口工具联调<a class="headerlink" href="#id3" title="永久链接至标题"></a></h2>
+<p><a class="reference external" href="http://filedown.tjc1688.com/USARTHMI/gongju/VSPD.zip">VSPD软件下载</a></p>
+<p>在安装好了VSPD之后,添加一对虚拟串口</p>
+<img alt="../_images/5_6.png" src="../_images/5_6.png" />
+<p>添加后如图所示</p>
+<img alt="../_images/5_7.png" src="../_images/5_7.png" />
+<p>进入串口屏调试界面,选择用户mcu输入,串口号选择com1,波特率115200,点击开始</p>
+<img alt="../_images/5_8.png" src="../_images/5_8.png" />
+<p>打开sscom,串口号选择com2(与com1互为1对串口),波特率115200,点击打开串口</p>
+<img alt="../_images/5_9.png" src="../_images/5_9.png" />
+<p>点击拓展按钮,让侧边栏显示出来</p>
+<img alt="../_images/5_10.png" src="../_images/5_10.png" />
+<p>将第一栏编辑为如下指令,注意去掉前面的勾选</p>
+<img alt="../_images/5_11.png" src="../_images/5_11.png" />
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>\xff\xff\xff是结束符</p>
+</div>
+<p>指令如下:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span> t0.txt<span class="o">=</span><span class="s2">&quot;淘晶驰电子&quot;</span><span class="se">\x</span>ff<span class="se">\x</span>ff<span class="se">\x</span>ff
+</pre></div>
+</div>
+<p>点击右侧按钮即可发送当前指令</p>
+<img alt="../_images/5_12.png" src="../_images/5_12.png" />
+<p>此时右下角可以看到接收到了数据,同时t0文本也变成了淘晶驰电子</p>
+<img alt="../_images/5_13.png" src="../_images/5_13.png" />
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>用户mcu输入功能可以用来连接其他的串口软件或者单片机</p>
+</div>
+</section>
+<section id="stm32-keil-mdk-5">
+<h2>3.与单片机(stm32 + Keil MDK 5)联调<a class="headerlink" href="#stm32-keil-mdk-5" title="永久链接至标题"></a></h2>
+<p>使用的单片机型号为stm32f103c8t6的最小系统板</p>
+<img alt="../_images/5_14.png" src="../_images/5_14.png" />
+<p>通过手册我们查找到,PA9为TX,PA10为RX</p>
+<img alt="../_images/5_15.png" src="../_images/5_15.png" />
+<p>连接方式如下所示</p>
+<img alt="../_images/5_16.png" src="../_images/5_16.png" />
+<img alt="../_images/5_17.png" src="../_images/5_17.png" />
+<p>回到串口屏上位机软件中,新建一个数字控件,并调整位置和大小</p>
+<img alt="../_images/5_18.png" src="../_images/5_18.png" />
+<p>此时屏幕上最显眼的两个控件分别是t0(文本控件)和n0(数字控件)</p>
+<img alt="../_images/5_19.png" src="../_images/5_19.png" />
+<p>我们再建立一个setting页面,用于演示跨页面赋值</p>
+<img alt="../_images/5_20.png" src="../_images/5_20.png" />
+<p>setting页面的sta设置为图片,pic属性设置为1</p>
+<img alt="../_images/5_21.png" src="../_images/5_21.png" />
+<p>在setting页面上放置一个数字控件count,放置一个按钮b0</p>
+<p>将数字控件count赋值为全局变量</p>
+<img alt="../_images/5_22.png" src="../_images/5_22.png" />
+<p>b0的txt属性设置为”返回主页面”</p>
+<img alt="../_images/5_23.png" src="../_images/5_23.png" />
+<p>b0控件的弹起事件中写入跳转到主页面的指令</p>
+<img alt="../_images/5_24.png" src="../_images/5_24.png" />
+<p>代码如下</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span> page main
+</pre></div>
+</div>
+<p>切换到main页面,新建一个按钮b1,b1的txt属性赋值为”设置”</p>
+<img alt="../_images/5_25.png" src="../_images/5_25.png" />
+<p>b1按键的弹起事件中写入跳转到设置页面的指令</p>
+<img alt="../_images/5_26.png" src="../_images/5_26.png" />
+<p>切换到program.s中,配置波特率/亮度/串口指令执行状态返回</p>
+<img alt="../_images/5_aa.png" src="../_images/5_aa.png" />
+<p>program.s中完整代码如下所示</p>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="w"> </span><span class="c1">//以下代码只在上电时运行一次,一般用于全局变量定义和上电初始化数据</span>
+<span class="linenos">2</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">sys0</span><span class="p">=</span><span class="m">0</span><span class="p">,</span><span class="n">sys1</span><span class="p">=</span><span class="m">0</span><span class="p">,</span><span class="n">sys2</span><span class="p">=</span><span class="m">0</span><span class="w">     </span><span class="c1">//全局变量定义目前仅支持4字节有符号整形(int),不支持其他类型的全局变量声明,如需使用字符串类型可以在页面中使用变量控件来实现</span>
+<span class="linenos">3</span><span class="w"> </span><span class="n">baud</span><span class="p">=</span><span class="m">115200</span><span class="w">    </span><span class="c1">//配置波特率为115200</span>
+<span class="linenos">4</span><span class="w"> </span><span class="n">dim</span><span class="p">=</span><span class="m">100</span><span class="w"> </span><span class="c1">//配置亮度100</span>
+<span class="linenos">5</span><span class="w"> </span><span class="n">bkcmd</span><span class="p">=</span><span class="m">3</span><span class="w"> </span><span class="c1">//打开串口指令执行状态返回</span>
+<span class="linenos">6</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="m">0</span><span class="w">  </span><span class="c1">//上电刷新第0页</span>
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>指令必须写在page指令前面,page后面的指令是不会执行的</p>
+</div>
+<p>keil工程代码如下所示</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="w"> </span><span class="cm">/*********************************************************************************/</span><span class="w"></span>
+<span class="linenos">  2</span><span class="w"> </span><span class="c1">//STM32串口屏示例程序</span>
+<span class="linenos">  3</span><span class="w"> </span><span class="c1">//更多资料：http://wiki.tjc1688.com/</span>
+<span class="linenos">  4</span><span class="w"> </span><span class="c1">//单片机STM32F103C8T6  波特率：115200</span>
+<span class="linenos">  5</span><span class="w"> </span><span class="cm">/*********************************************************************************/</span><span class="w"></span>
+<span class="linenos">  6</span>
+<span class="linenos">  7</span><span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;delay.h&quot;</span><span class="cp"></span>
+<span class="linenos">  8</span><span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;sys.h&quot;</span><span class="cp"></span>
+<span class="linenos">  9</span><span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;usart.h&quot;</span><span class="cp"></span>
+<span class="linenos"> 10</span><span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 11</span>
+<span class="linenos"> 12</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">HMISends</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">buf1</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 13</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">HMISendb</span><span class="p">(</span><span class="n">u8</span><span class="w"> </span><span class="n">buf</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 14</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">beepms</span><span class="p">(</span><span class="n">u16</span><span class="w"> </span><span class="n">va</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 15</span>
+<span class="linenos"> 16</span><span class="w"> </span><span class="n">u8</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="n">beep</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 17</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 18</span>
+<span class="linenos"> 19</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">beepms</span><span class="p">(</span><span class="n">u16</span><span class="w"> </span><span class="n">va</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 20</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 21</span><span class="w">     </span><span class="n">beep</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 22</span><span class="w">     </span><span class="n">delay_ms</span><span class="p">(</span><span class="n">va</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 23</span><span class="w">     </span><span class="n">beep</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 24</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="linenos"> 25</span>
+<span class="linenos"> 26</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">HMISendstart</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 27</span><span class="w">     </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 28</span><span class="w">         </span><span class="c1">//向串口屏发送 00 ff ff ff 来结束单片机初始化期间IO翻转导致的屏幕接收到的错误数据,以保证屏幕可以正常解析第一帧数据</span>
+<span class="linenos"> 29</span><span class="w">         </span><span class="n">delay_ms</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 30</span><span class="w">         </span><span class="n">USART_SendData</span><span class="p">(</span><span class="n">USART1</span><span class="p">,</span><span class="mh">0x00</span><span class="p">);</span><span class="w">  </span><span class="c1">//发送0x00</span>
+<span class="linenos"> 31</span><span class="w">         </span><span class="k">while</span><span class="p">(</span><span class="n">USART_GetFlagStatus</span><span class="p">(</span><span class="n">USART1</span><span class="p">,</span><span class="n">USART_FLAG_TXE</span><span class="p">)</span><span class="o">==</span><span class="n">RESET</span><span class="p">){};</span><span class="c1">//等待发送结束</span>
+<span class="linenos"> 32</span><span class="w">         </span><span class="n">USART_SendData</span><span class="p">(</span><span class="n">USART1</span><span class="p">,</span><span class="mh">0xff</span><span class="p">);</span><span class="w">  </span><span class="c1">//发送0xff</span>
+<span class="linenos"> 33</span><span class="w">         </span><span class="k">while</span><span class="p">(</span><span class="n">USART_GetFlagStatus</span><span class="p">(</span><span class="n">USART1</span><span class="p">,</span><span class="n">USART_FLAG_TXE</span><span class="p">)</span><span class="o">==</span><span class="n">RESET</span><span class="p">){};</span><span class="c1">//等待发送结束</span>
+<span class="linenos"> 34</span><span class="w">         </span><span class="n">USART_SendData</span><span class="p">(</span><span class="n">USART1</span><span class="p">,</span><span class="mh">0xff</span><span class="p">);</span><span class="w">  </span><span class="c1">//发送0xff</span>
+<span class="linenos"> 35</span><span class="w">         </span><span class="k">while</span><span class="p">(</span><span class="n">USART_GetFlagStatus</span><span class="p">(</span><span class="n">USART1</span><span class="p">,</span><span class="n">USART_FLAG_TXE</span><span class="p">)</span><span class="o">==</span><span class="n">RESET</span><span class="p">){};</span><span class="c1">//等待发送结束</span>
+<span class="linenos"> 36</span><span class="w">         </span><span class="n">USART_SendData</span><span class="p">(</span><span class="n">USART1</span><span class="p">,</span><span class="mh">0xff</span><span class="p">);</span><span class="w">  </span><span class="c1">//发送0xff</span>
+<span class="linenos"> 37</span><span class="w">         </span><span class="k">while</span><span class="p">(</span><span class="n">USART_GetFlagStatus</span><span class="p">(</span><span class="n">USART1</span><span class="p">,</span><span class="n">USART_FLAG_TXE</span><span class="p">)</span><span class="o">==</span><span class="n">RESET</span><span class="p">){};</span><span class="c1">//等待发送结束</span>
+<span class="linenos"> 38</span><span class="w">         </span><span class="n">delay_ms</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 39</span><span class="w">     </span><span class="p">}</span><span class="w"></span>
+<span class="linenos"> 40</span>
+<span class="linenos"> 41</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 42</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 43</span><span class="w">     </span><span class="n">delay_init</span><span class="p">();</span><span class="w">            </span><span class="c1">//延时函数初始化</span>
+<span class="linenos"> 44</span><span class="w">     </span><span class="n">NVIC_Configuration</span><span class="p">();</span><span class="w">    </span><span class="c1">//设置NVIC中断分组2:2位抢占优先级，2位响应优先级</span>
+<span class="linenos"> 45</span><span class="w">     </span><span class="n">uart_init</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span><span class="w">               </span><span class="c1">//串口初始化为115200</span>
+<span class="linenos"> 46</span><span class="w">     </span><span class="n">HMISendstart</span><span class="p">();</span><span class="w">          </span><span class="c1">//清空串口屏里的指令</span>
+<span class="linenos"> 47</span>
+<span class="linenos"> 48</span><span class="w">     </span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 49</span><span class="w">     </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 50</span><span class="w">         </span><span class="c1">//-----------------------------发送变化的字符开始--------------------------------</span>
+<span class="linenos"> 51</span>
+<span class="linenos"> 52</span><span class="w">         </span><span class="c1">//定义一个字符串数组</span>
+<span class="linenos"> 53</span><span class="w">         </span><span class="kt">char</span><span class="w"> </span><span class="n">tjcstr</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span><span class="w"></span>
+<span class="linenos"> 54</span>
+<span class="linenos"> 55</span><span class="w">         </span><span class="cm">/********示例1:给文本控件赋值**********</span>
+<span class="linenos"> 56</span><span class="cm">         用sprintf来格式化字符串,给t0的txt属性赋值，</span>
+<span class="linenos"> 57</span><span class="cm">         给控件的文本属性赋值时,内容需要用成对的 \&quot; \&quot; 包裹住,</span>
+<span class="linenos"> 58</span><span class="cm">         当格式化的参数为字符串时，请保证字符串以\0结尾</span>
+<span class="linenos"> 59</span><span class="cm">         *****************************************/</span><span class="w"></span>
+<span class="linenos"> 60</span><span class="w">         </span><span class="n">sprintf</span><span class="p">(</span><span class="n">tjcstr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;t0.txt=</span><span class="se">\&quot;</span><span class="s">现在是%d</span><span class="se">\&quot;</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 61</span>
+<span class="linenos"> 62</span><span class="w">         </span><span class="c1">//把字符串发送出去</span>
+<span class="linenos"> 63</span><span class="w">         </span><span class="n">HMISends</span><span class="p">(</span><span class="n">tjcstr</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 64</span>
+<span class="linenos"> 65</span><span class="w">         </span><span class="c1">//发送结束符</span>
+<span class="linenos"> 66</span><span class="w">         </span><span class="n">HMISendb</span><span class="p">(</span><span class="mh">0xff</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 67</span>
+<span class="linenos"> 68</span>
+<span class="linenos"> 69</span><span class="w">         </span><span class="cm">/********示例2:给数字控件赋值**********</span>
+<span class="linenos"> 70</span><span class="cm">         //用sprintf来格式化字符串，给n0.val属性赋值，同时加上结束符,</span>
+<span class="linenos"> 71</span><span class="cm">         请注意给val属性赋值时,是没有 \&quot; \&quot; 的,</span>
+<span class="linenos"> 72</span><span class="cm">         当格式化的参数为字符串时，请保证字符串以\0结尾</span>
+<span class="linenos"> 73</span><span class="cm">         *****************************************/</span><span class="w"></span>
+<span class="linenos"> 74</span><span class="w">         </span><span class="n">sprintf</span><span class="p">(</span><span class="n">tjcstr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;n0.val=%d</span><span class="se">\xff\xff\xff</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 75</span>
+<span class="linenos"> 76</span><span class="w">         </span><span class="c1">//把字符串发送出去</span>
+<span class="linenos"> 77</span><span class="w">         </span><span class="n">HMISends</span><span class="p">(</span><span class="n">tjcstr</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 78</span>
+<span class="linenos"> 79</span><span class="w">         </span><span class="c1">//不用发送结束符,因为结束符已经被整合在字符串中了</span>
+<span class="linenos"> 80</span>
+<span class="linenos"> 81</span>
+<span class="linenos"> 82</span>
+<span class="linenos"> 83</span><span class="w">         </span><span class="cm">/********示例3:跨页面赋值**********</span>
+<span class="linenos"> 84</span><span class="cm">         //用sprintf来格式化字符串，setting页面的count.val自增，同时加上结束符,</span>
+<span class="linenos"> 85</span><span class="cm">         请注意跨页面赋值时,需要把控件设置为全局,</span>
+<span class="linenos"> 86</span><span class="cm">         *****************************************/</span><span class="w"></span>
+<span class="linenos"> 87</span><span class="w">         </span><span class="n">sprintf</span><span class="p">(</span><span class="n">tjcstr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;setting.count.val++</span><span class="se">\xff\xff\xff</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 88</span>
+<span class="linenos"> 89</span><span class="w">         </span><span class="c1">//把字符串发送出去</span>
+<span class="linenos"> 90</span><span class="w">         </span><span class="n">HMISends</span><span class="p">(</span><span class="n">tjcstr</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 91</span>
+<span class="linenos"> 92</span><span class="w">         </span><span class="c1">//不用发送结束符,因为结束符已经被整合在字符串中了</span>
+<span class="linenos"> 93</span>
+<span class="linenos"> 94</span>
+<span class="linenos"> 95</span><span class="w">         </span><span class="c1">//延时1000ms</span>
+<span class="linenos"> 96</span><span class="w">         </span><span class="n">delay_ms</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 97</span><span class="w">         </span><span class="n">a</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 98</span>
+<span class="linenos"> 99</span><span class="w">         </span><span class="c1">//-------------------------------------发送变化的字符结束-------------------------------------</span>
+<span class="linenos">100</span><span class="w">     </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">101</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">102</span>
+<span class="linenos">103</span><span class="w"> </span><span class="c1">//字符串发送函数</span>
+<span class="linenos">104</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">HMISends</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">buf1</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">105</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">106</span><span class="w">     </span><span class="n">u8</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">107</span><span class="w">     </span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">108</span><span class="w">     </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">109</span><span class="w">         </span><span class="k">if</span><span class="p">(</span><span class="n">buf1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">110</span><span class="w">         </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">111</span><span class="w">             </span><span class="n">USART_SendData</span><span class="p">(</span><span class="n">USART1</span><span class="p">,</span><span class="n">buf1</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w">  </span><span class="c1">//发送一个字节</span>
+<span class="linenos">112</span><span class="w">             </span><span class="k">while</span><span class="p">(</span><span class="n">USART_GetFlagStatus</span><span class="p">(</span><span class="n">USART1</span><span class="p">,</span><span class="n">USART_FLAG_TXE</span><span class="p">)</span><span class="o">==</span><span class="n">RESET</span><span class="p">){};</span><span class="c1">//等待发送结束</span>
+<span class="linenos">113</span><span class="w">             </span><span class="n">i</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">114</span><span class="w">         </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">115</span><span class="w">         </span><span class="k">else</span><span class="w"></span>
+<span class="linenos">116</span><span class="w">         </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">117</span><span class="w">             </span><span class="k">return</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="linenos">118</span><span class="w">         </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">119</span><span class="w">     </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">120</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">121</span>
+<span class="linenos">122</span><span class="w"> </span><span class="c1">//字节发送函数</span>
+<span class="linenos">123</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">HMISendb</span><span class="p">(</span><span class="n">u8</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">124</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">125</span><span class="w">     </span><span class="n">u8</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">126</span><span class="w">     </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">127</span><span class="w">     </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">128</span><span class="w">             </span><span class="k">if</span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">129</span><span class="w">             </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">130</span><span class="w">                 </span><span class="n">USART_SendData</span><span class="p">(</span><span class="n">USART1</span><span class="p">,</span><span class="n">k</span><span class="p">);</span><span class="w">  </span><span class="c1">//发送一个字节</span>
+<span class="linenos">131</span><span class="w">                 </span><span class="k">while</span><span class="p">(</span><span class="n">USART_GetFlagStatus</span><span class="p">(</span><span class="n">USART1</span><span class="p">,</span><span class="n">USART_FLAG_TXE</span><span class="p">)</span><span class="o">==</span><span class="n">RESET</span><span class="p">){};</span><span class="c1">//等待发送结束</span>
+<span class="linenos">132</span><span class="w">             </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">133</span><span class="w">             </span><span class="k">else</span><span class="w"></span>
+<span class="linenos">134</span><span class="w">             </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">135</span><span class="w">                 </span><span class="k">return</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="linenos">136</span><span class="w">             </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">137</span><span class="w">     </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">138</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>使用sprintf格式化字符串时,请保证参数为%s(即字符串)时,是以0结尾的字符串,否则将导致输出错误的结果</p>
+</div>
+<p>将程序下载到单片机后,将单片机通过USB转TTL小板连接到电脑上,通过设备可以查到当前的串口号为com99</p>
+<img alt="../_images/5_28.png" src="../_images/5_28.png" />
+<p>点击调试进入串口屏的调试模式,可以看到串口屏顺利接收并解析了单片机发来的数据</p>
+<img alt="../_images/5_29.png" src="../_images/5_29.png" />
+<p>可以点击S按钮,查看对应的字符串格式的数据,可以看到单片机发送出来的数据是65,屏幕上显示的数据也是65</p>
+<img alt="../_images/5_30.png" src="../_images/5_30.png" />
+<p>点击”设置”按键切换到设置页面,可以看到全局变量count也是在不断的自增</p>
+<img alt="../_images/5_31.png" src="../_images/5_31.png" />
+<p>同时我们也会看到一些报错信息,因为当前页面没有文本控件t0和数字控件n0,因此单片机提示变量名称无效</p>
+<img alt="../_images/5_32.png" src="../_images/5_32.png" />
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>建议需要由单片机通过串口传输给串口屏的变量设置为全局变量,并且以页面名称.控件名.属性的方式来赋值,例如setting.count.val=100</p>
+</div>
+</section>
+<section id="arduino-mega">
+<h2>4.与arduino mega联调<a class="headerlink" href="#arduino-mega" title="永久链接至标题"></a></h2>
+<p>arduino代码如下</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="w"> </span><span class="c1">//arduino的GND接串口工具的GND,共地</span>
+<span class="linenos"> 2</span><span class="w"> </span><span class="c1">//arduino的TX3接串口工具的RX</span>
+<span class="linenos"> 3</span><span class="w"> </span><span class="c1">//arduino的RX3接串口工具的TX</span>
+<span class="linenos"> 4</span><span class="w"> </span><span class="c1">//根据自己的实际改为对应的串口,我这里接的是TX3和RX3</span>
+<span class="linenos"> 5</span><span class="w"> </span><span class="cp">#define TJC Serial3</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 8</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">nowtime</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 9</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">10</span><span class="w">     </span><span class="c1">// put your setup code here, to run once:</span>
+<span class="linenos">11</span><span class="w">     </span><span class="c1">//初始化串口</span>
+<span class="linenos">12</span><span class="w">     </span><span class="n">TJC</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="w">     </span><span class="c1">//因为串口屏开机会发送88 ff ff ff,所以要清空串口缓冲区</span>
+<span class="linenos">15</span><span class="w">     </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">TJC</span><span class="p">.</span><span class="n">read</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">//清空串口缓冲区</span>
+<span class="linenos">16</span><span class="w">     </span><span class="n">TJC</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;page main</span><span class="se">\xff\xff\xff</span><span class="s">&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">//发送命令让屏幕跳转到main页面</span>
+<span class="linenos">17</span><span class="w">     </span><span class="n">nowtime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">millis</span><span class="p">();</span><span class="w"> </span><span class="c1">//获取当前已经运行的时间</span>
+<span class="linenos">18</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">21</span><span class="w">     </span><span class="c1">// put your main code here, to run repeatedly:</span>
+<span class="linenos">22</span><span class="w">     </span><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span><span class="w"></span>
+<span class="linenos">23</span><span class="w">     </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">millis</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">nowtime</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1000</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">24</span><span class="w">         </span><span class="n">nowtime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">millis</span><span class="p">();</span><span class="w"> </span><span class="c1">//获取当前已经运行的时间</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span><span class="w">         </span><span class="c1">//用sprintf来格式化字符串，给n0的val属性赋值</span>
+<span class="linenos">27</span><span class="w">         </span><span class="n">sprintf</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;n0.val=%d</span><span class="se">\xff\xff\xff</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">28</span><span class="w">         </span><span class="c1">//把字符串发送出去</span>
+<span class="linenos">29</span><span class="w">         </span><span class="n">TJC</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">str</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">30</span>
+<span class="linenos">31</span><span class="w">         </span><span class="c1">//用sprintf来格式化字符串，给t0的txt属性赋值</span>
+<span class="linenos">32</span><span class="w">         </span><span class="n">sprintf</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;t0.txt=</span><span class="se">\&quot;</span><span class="s">现在是%d</span><span class="se">\&quot;\xff\xff\xff</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">33</span><span class="w">         </span><span class="c1">//把字符串发送出去</span>
+<span class="linenos">34</span><span class="w">         </span><span class="n">TJC</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">str</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">35</span>
+<span class="linenos">36</span>
+<span class="linenos">37</span><span class="w">         </span><span class="c1">//用sprintf来格式化字符串，触发b0的按下事件,直接把结束符整合在字符串中</span>
+<span class="linenos">38</span><span class="w">         </span><span class="n">sprintf</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;click b0,1</span><span class="se">\xff\xff\xff</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">39</span><span class="w">         </span><span class="c1">//把字符串发送出去</span>
+<span class="linenos">40</span><span class="w">         </span><span class="n">TJC</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">str</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">41</span>
+<span class="linenos">42</span><span class="w">         </span><span class="n">delay</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span><span class="w">  </span><span class="c1">//延时50ms,才能看清楚点击效果</span>
+<span class="linenos">43</span>
+<span class="linenos">44</span><span class="w">         </span><span class="c1">//用sprintf来格式化字符串，触发b0的弹起事件,直接把结束符整合在字符串中</span>
+<span class="linenos">45</span><span class="w">         </span><span class="n">sprintf</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;click b0,0</span><span class="se">\xff\xff\xff</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">46</span><span class="w">         </span><span class="c1">//把字符串发送出去</span>
+<span class="linenos">47</span><span class="w">         </span><span class="n">TJC</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">str</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">48</span>
+<span class="linenos">49</span><span class="w">         </span><span class="n">a</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">50</span><span class="w">     </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">51</span>
+<span class="linenos">52</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="create_project.html" class="btn btn-neutral float-left" title="第四章：创建工程" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../instruction_set.html" class="btn btn-neutral float-right" title="基本指令集" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, tjc.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>三、【跨页面赋值，全局页面操作】 &mdash; 淘晶驰资料中心 1.0.0 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="四、【HMI逻辑语句】" href="hmi_logic.html" />
+    <link rel="prev" title="二、【运算操作】" href="arithmetic_operation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> 淘晶驰资料中心
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">淘晶驰教程:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../get_start.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../instruction_set.html">基本指令集</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../code_grammar.html">书写语法</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="assignment_operation.html">一、【赋值操作】</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arithmetic_operation.html">二、【运算操作】</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">三、【跨页面赋值，全局页面操作】</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hmi_logic.html">四、【HMI逻辑语句】</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../system_variables.html">系统变量</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_return.html">串口HMI设备返回数据格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../name_array.html">名称组使用说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_applications.html">HMI高级应用与特殊指令详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usarthmi_download.html">上位机下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../widget_interpretation.html">控件详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">工程样例下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video_tutorial.html">视频教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Q_and_A.html">基础问题集锦</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../product_datasheet.html">产品选型和规格书</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">淘晶驰资料中心</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../code_grammar.html">书写语法</a> &raquo;</li>
+      <li>三、【跨页面赋值，全局页面操作】</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/folder_code_grammar/global_variable.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>三、【跨页面赋值，全局页面操作】<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<p>多数情况下，我们都是在操作当面页面的控件属性，如果需要操作其他页面的控件属性请按如下书写方式:</p>
+<p>[页面].[控件].[属性]=XXX</p>
+<div class="literal-block-wrapper docutils container" id="test11">
+<div class="code-block-caption"><span class="caption-text">跨页面赋值</span><a class="headerlink" href="#test11" title="永久链接至代码"></a></div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>main.t0.txt<span class="o">=</span><span class="s2">&quot;123&quot;</span>            给main页面的t0.txt属性赋值<span class="s2">&quot;123&quot;</span>
+<span class="linenos">2</span>main.t0.txt<span class="o">=</span>set.t3.txt       把set页面的t3.txt赋值给main页面的t0.txt
+<span class="linenos">3</span>set.t4.txt<span class="o">=</span><span class="s2">&quot;abc&quot;</span>             给set页面的t4.txt赋值<span class="s2">&quot;abc&quot;</span>
+</pre></div>
+</div>
+</div>
+<p>特别注意：</p>
+<p>1.跨页面操作控件属性的时候，不管是读取还是赋值，被操作控件的vscope属性必须设置为全局（默认是私有），否则操作会失败。</p>
+<p>2.click vis tsw指令无法跨页面触发控件、定时器控件只能在当前页面运行、曲线波形控件只能在当前页面添加数据点。</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="arithmetic_operation.html" class="btn btn-neutral float-left" title="二、【运算操作】" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="hmi_logic.html" class="btn btn-neutral float-right" title="四、【HMI逻辑语句】" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, taojingchi.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

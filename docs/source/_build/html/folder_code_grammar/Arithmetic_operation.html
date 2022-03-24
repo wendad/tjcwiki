@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>二、【运算操作】 &mdash; 淘晶驰资料中心 1.0.0 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="三、【跨页面赋值，全局页面操作】" href="global_variable.html" />
+    <link rel="prev" title="一、【赋值操作】" href="assignment_operation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> 淘晶驰资料中心
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">淘晶驰教程:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../get_start.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../instruction_set.html">基本指令集</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../code_grammar.html">书写语法</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="assignment_operation.html">一、【赋值操作】</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">二、【运算操作】</a></li>
+<li class="toctree-l2"><a class="reference internal" href="global_variable.html">三、【跨页面赋值，全局页面操作】</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hmi_logic.html">四、【HMI逻辑语句】</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../system_variables.html">系统变量</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_return.html">串口HMI设备返回数据格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../name_array.html">名称组使用说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_applications.html">HMI高级应用与特殊指令详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usarthmi_download.html">上位机下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../widget_interpretation.html">控件详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">工程样例下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video_tutorial.html">视频教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Q_and_A.html">基础问题集锦</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../product_datasheet.html">产品选型和规格书</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">淘晶驰资料中心</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../code_grammar.html">书写语法</a> &raquo;</li>
+      <li>二、【运算操作】</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/folder_code_grammar/arithmetic_operation.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>二、【运算操作】<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>所有运算不支持乘除法优先，也不支持括号优先级，统一从左到右的顺序，请特别注意。</p>
+<p>所有的运算操作可以在上位编辑状态下写入控件事件中，也可以串口传输过来(串口传输记得加三个0xff的结束符)</p>
+<p>所有的运算操作都不支持多余空格，添加进任何空格，编译都会报错</p>
+</div>
+<p>▶数值类型变量运算操作</p>
+<p>支持的运算符：+  -  *  /  %   &amp;  |  ^  &lt;&lt;  &gt;&gt;</p>
+<div class="literal-block-wrapper docutils container" id="test6">
+<div class="code-block-caption"><span class="caption-text">正确的运算操作</span><a class="headerlink" href="#test6" title="永久链接至代码"></a></div>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="p">=</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="p">+</span><span class="n">n1</span><span class="p">.</span><span class="n">val</span><span class="p">+</span><span class="m">2</span><span class="w"></span>
+<span class="linenos">2</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="p">++</span><span class="w"></span>
+<span class="linenos">3</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="p">+=</span><span class="m">2</span><span class="w"></span>
+<span class="linenos">4</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="p">=</span><span class="n">n1</span><span class="p">.</span><span class="n">val</span><span class="p">%</span><span class="m">3</span><span class="w"></span>
+<span class="linenos">5</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="p">=</span><span class="n">h0</span><span class="p">.</span><span class="n">val</span><span class="p">*</span><span class="m">10</span><span class="w"></span>
+<span class="linenos">6</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="p">*=</span><span class="m">10</span><span class="w"></span>
+<span class="linenos">7</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="p">=</span><span class="n">n1</span><span class="p">.</span><span class="n">val</span><span class="p">&amp;</span><span class="m">3</span><span class="w"></span>
+<span class="linenos">8</span><span class="n">n0</span><span class="p">.</span><span class="n">val</span><span class="p">=</span><span class="n">n1</span><span class="p">.</span><span class="n">val</span><span class="p">^</span><span class="m">5</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="test7">
+<div class="code-block-caption"><span class="caption-text">以下为错误的运算写法</span><a class="headerlink" href="#test7" title="永久链接至代码"></a></div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>n0.val<span class="o">=</span>t0.txt+1          错误原因：数值类型的变量必须跟数值类型的变量做运算，并赋值给数值类型的变量
+<span class="linenos">2</span>n0.val<span class="o">=</span><span class="m">1</span>+<span class="s2">&quot;2&quot;</span>             错误原因：数值类型的变量必须跟数值类型的变量做运算，并赋值给数值类型的变量
+</pre></div>
+</div>
+</div>
+<p>注意:当数字控件的最高位为1时(即负数),进行右移操作时,最高位将补1,例如0x80000000&gt;&gt;31后变为0xFFFFFFFF而不是0x01</p>
+<p>字符串类型变量运算操作</p>
+<p>运算符 “+”</p>
+<div class="literal-block-wrapper docutils container" id="test8">
+<div class="code-block-caption"><span class="caption-text">字符串拼接</span><a class="headerlink" href="#test8" title="永久链接至代码"></a></div>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">t0</span><span class="p">.</span><span class="n">txt</span><span class="p">=</span><span class="s">&quot;1&quot;</span><span class="p">+</span><span class="s">&quot;2&quot;</span><span class="w"></span>
+<span class="linenos">2</span><span class="n">t0</span><span class="p">.</span><span class="n">txt</span><span class="p">=</span><span class="n">t0</span><span class="p">.</span><span class="n">txt</span><span class="p">+</span><span class="n">t1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="linenos">3</span><span class="n">t0</span><span class="p">.</span><span class="n">txt</span><span class="p">+=</span><span class="s">&quot;abc&quot;</span><span class="p">+</span><span class="s">&quot;xy&quot;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="test9">
+<div class="code-block-caption"><span class="caption-text">以下为错误的运算写法</span><a class="headerlink" href="#test9" title="永久链接至代码"></a></div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>t0.txt<span class="o">=</span><span class="m">1</span>+2                 错误原因：1和2都是数值常量 字符串类型的变量只能跟字符串常量/变量相加，不能跟一个数值常量/变量相加
+<span class="linenos">2</span>t0.txt<span class="o">=</span>t0.txt+h0.val    错误原因：h0.val是数值变量,不能跟字符串变量相加
+</pre></div>
+</div>
+</div>
+<p>运算符 “-”</p>
+<div class="literal-block-wrapper docutils container" id="test10">
+<div class="code-block-caption"><span class="caption-text">字符串删除</span><a class="headerlink" href="#test10" title="永久链接至代码"></a></div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>t0.txt<span class="o">=</span>t0.txt-1    删除t0.txt最后1个字符
+<span class="linenos">2</span>t0.txt<span class="o">=</span>t0.txt-3    删除t0.txt最后3个字符
+<span class="linenos">3</span>t0.txt-<span class="o">=</span>n0.val     删除t0.txt最后n0.val个字符
+</pre></div>
+</div>
+</div>
+<p>在字符串变量运算中，”-“代表删除的意思,所以用”-“的时候，字符串变量必须”-“一个数值常量/变量来表示删除多少个字符，这里跟用”+”是不一样的。用”+”的时候必须是字符串+字符串；用”-“的时候必须是字符串-数值。</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="assignment_operation.html" class="btn btn-neutral float-left" title="一、【赋值操作】" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="global_variable.html" class="btn btn-neutral float-right" title="三、【跨页面赋值，全局页面操作】" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, taojingchi.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

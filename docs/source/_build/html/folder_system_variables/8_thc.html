@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>thc-触摸绘图时的画笔色 &mdash; 淘晶驰资料中心 1.0.0 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="thdra-触摸绘图功能开关" href="9_thdra.html" />
+    <link rel="prev" title="spay-字符显示纵向间距(上电默认为0)" href="7_spay.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> 淘晶驰资料中心
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">淘晶驰教程:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../get_start.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../instruction_set.html">基本指令集</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code_grammar.html">书写语法</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../system_variables.html">系统变量</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1_dp.html">dp-当前页面ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_dim.html">dim-当前背光亮度值(0-100)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_dims.html">dims-上电默认背光亮度值(0-100)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_baud.html">baud-当前波特率值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_bauds.html">bauds-上电默认波特率值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_spax.html">spax-字符显示横向间距(上电默认为0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_spay.html">spay-字符显示纵向间距(上电默认为0)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">thc-触摸绘图时的画笔色</a></li>
+<li class="toctree-l2"><a class="reference internal" href="9_thdra.html">thdra-触摸绘图功能开关</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_ussp.html">ussp-无串口数据自动睡眠时间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_thsp.html">thsp-无触摸操作自动睡眠时间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_thup.html">thup-睡眠模式下触摸自动唤醒开关</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13_usup.html">ussp-无串口数据自动睡眠时间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_wup.html">wup-睡眠唤醒后刷新页面设置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="15_sleep.html">sleep-睡眠</a></li>
+<li class="toctree-l2"><a class="reference internal" href="16_lowpower.html">lowpower-睡眠模式设定（上电默认为0）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="17_bkcmd.html">bkcmd-设置串口指令执行成功或者失败的数据返回</a></li>
+<li class="toctree-l2"><a class="reference internal" href="18_sendxy.html">sendxy-实时发送触摸坐标功能开关</a></li>
+<li class="toctree-l2"><a class="reference internal" href="19_delay.html">delay-延时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20_rand.html">rand-随机数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21_tch0-tch3.html">tch0~tch3-实时触摸坐标</a></li>
+<li class="toctree-l2"><a class="reference internal" href="22_addr.html">addr-设备地址</a></li>
+<li class="toctree-l2"><a class="reference internal" href="23_crcval.html">crcval-crc校验结果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="24_rtc0-rtc6.html">rtc0~rtc6-RTC时钟变量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="25_pio0-pio7.html">pio0~pio7-扩展IO端口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="26_pwm4-pwm7.html">pwm4~pwm7-扩展IO占空比</a></li>
+<li class="toctree-l2"><a class="reference internal" href="27_pwmf.html">pwmf-PWM输出的频率</a></li>
+<li class="toctree-l2"><a class="reference internal" href="28_eql_eqm_eqh.html">eql eqm eqh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29_eq0-eq9.html">eq0~eq9 独立频点衰减</a></li>
+<li class="toctree-l2"><a class="reference internal" href="30_volume.html">volume-系统音量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="31_audio0-audio1.html">audio0~audio1-音频通道控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="32_hmi_color.html">串口HMI颜色代号表</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../data_return.html">串口HMI设备返回数据格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../name_array.html">名称组使用说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_applications.html">HMI高级应用与特殊指令详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usarthmi_download.html">上位机下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../widget_interpretation.html">控件详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">工程样例下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video_tutorial.html">视频教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Q_and_A.html">基础问题集锦</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../product_datasheet.html">产品选型和规格书</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">淘晶驰资料中心</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../system_variables.html">系统变量</a> &raquo;</li>
+      <li>thc-触摸绘图时的画笔色</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/folder_system_variables/8_thc.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="thc">
+<h1>thc-触摸绘图时的画笔色<a class="headerlink" href="#thc" title="永久链接至标题"></a></h1>
+<p>1.thc=RED   2.thc=1024</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="7_spay.html" class="btn btn-neutral float-left" title="spay-字符显示纵向间距(上电默认为0)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="9_thdra.html" class="btn btn-neutral float-right" title="thdra-触摸绘图功能开关" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, taojingchi.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
